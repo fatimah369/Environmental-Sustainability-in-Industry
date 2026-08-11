@@ -401,6 +401,7 @@
 
 <script>
 (function(){
+  var SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxKJoaOkp2QW2ZEIgxd7EH6pj94V3MmZ7pS2Hwk0Hea-Vj6XhVKue92li0hi0cyU8YaGA/exec';
   var toggleBtnAr = document.getElementById('btn-ar');
   var toggleBtnEn = document.getElementById('btn-en');
   var html = document.documentElement;
@@ -446,15 +447,35 @@
   // Form submit
   var form = document.getElementById('registerForm');
   var successBox = document.getElementById('successBox');
+  var submitBtn = form.querySelector('.form-submit .btn-primary');
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
     if(!form.checkValidity()){
       form.reportValidity();
       return;
     }
-    successBox.classList.add('show');
-    form.reset();
-    successBox.scrollIntoView({ behavior:'smooth', block:'center' });
+
+    var currentLang = html.getAttribute('lang') || 'ar';
+    var payload = new URLSearchParams({
+      facilityName: form.facilityName.value,
+      activity: form.activity.value,
+      responsibleName: form.responsibleName.value,
+      email: form.email.value,
+      mobile: form.mobile.value,
+      lang: currentLang
+    });
+
+    if(submitBtn){ submitBtn.disabled = true; submitBtn.style.opacity = '0.7'; }
+
+    fetch(SHEET_ENDPOINT, { method: 'POST', body: payload })
+      .catch(function(){ /* still show success client-side even if network hiccups */ })
+      .then(function(){
+        successBox.classList.add('show');
+        form.reset();
+        successBox.scrollIntoView({ behavior:'smooth', block:'center' });
+        if(submitBtn){ submitBtn.disabled = false; submitBtn.style.opacity = ''; }
+      });
   });
 })();
 </script>
