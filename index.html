@@ -268,6 +268,15 @@
     content:""; position:absolute; inset-inline-start:0; top:0; bottom:0; width:6px;
     background:linear-gradient(180deg,var(--green-500),var(--green-800));
   }
+  .register-intro{
+    font-size:14.5px; line-height:1.95; color:var(--ink-soft);
+    background:var(--bg-soft); border-inline-start:3px solid var(--green-500);
+    border-radius:8px; padding:18px 22px; margin-bottom:30px;
+  }
+  .register-closing{
+    text-align:center; font-size:15px; font-weight:800; color:var(--green-700);
+    margin-top:26px;
+  }
   .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:8px; }
   .form-field{ display:flex; flex-direction:column; gap:8px; }
   .form-field.full{ grid-column:1 / -1; }
@@ -517,6 +526,7 @@
       <p data-ar="يرجى تعبئة البيانات التالية لتسجيل مشاركة منشأتكم في البرنامج" data-en="Please fill in the details below to register your facility's participation in the program">يرجى تعبئة البيانات التالية لتسجيل مشاركة منشأتكم في البرنامج</p>
     </div>
     <div class="register-card">
+      <p class="register-intro" data-ar="السادة/ جمعية أصدقاء البيئة الخيرية المحترمين، نعتمد مشاركتنا في مبادرة البرنامج الاستراتيجي لحماية البيئة بالمنطقة الشرقية (جائزة المصنع المثالي – النسخة الثالثة)، ونرجو التكرم بالتواصل مع المسؤول المُشار إليه أدناه لإجراء الترتيبات الخاصة بالمشاركة." data-en="To the Environmental Friends Charitable Society, we confirm our participation in the Strategic Program for Environmental Protection in the Eastern Region initiative (Ideal Factory Award – 3rd Edition), and kindly request that you contact the representative named below to arrange the participation details.">السادة/ جمعية أصدقاء البيئة الخيرية المحترمين، نعتمد مشاركتنا في مبادرة البرنامج الاستراتيجي لحماية البيئة بالمنطقة الشرقية (جائزة المصنع المثالي – النسخة الثالثة)، ونرجو التكرم بالتواصل مع المسؤول المُشار إليه أدناه لإجراء الترتيبات الخاصة بالمشاركة.</p>
       <form id="registerForm" novalidate>
         <div class="form-grid">
           <div class="form-field full">
@@ -557,6 +567,7 @@
           <span data-ar="شكرًا لتسجيل مشاركتكم! تم استلام بياناتكم بنجاح، وسيتواصل معكم فريق البرنامج قريبًا." data-en="Thank you for registering! Your information has been received successfully, and our team will contact you soon.">شكرًا لتسجيل مشاركتكم! تم استلام بياناتكم بنجاح، وسيتواصل معكم فريق البرنامج قريبًا.</span>
         </div>
       </form>
+      <p class="register-closing" data-ar="والله الموفق ..." data-en="Wishing you every success.">والله الموفق ...</p>
     </div>
   </div>
 </section>
