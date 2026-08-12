@@ -258,6 +258,27 @@
   }
   .timeline-step span:last-child{ font-size:13.5px; font-weight:700; color:var(--ink); line-height:1.6; }
 
+  /* ===== Previous Winners ===== */
+  .winners{ background:#fff; }
+  .winners-card{
+    background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:40px;
+  }
+  .winners-date{
+    display:inline-flex; background:#fff; border:1px solid var(--border);
+    border-radius:999px; padding:8px 20px; font-size:13px; font-weight:800; color:var(--green-700);
+    margin-bottom:18px;
+  }
+  .winners-intro{ font-size:15px; line-height:1.9; color:var(--ink-soft); margin:0 0 28px; max-width:760px; }
+  .winners-grid{ display:grid; grid-template-columns:1fr 1fr; gap:0 32px; }
+  .winners-col{ display:flex; flex-direction:column; }
+  .winner-item{
+    display:flex; align-items:center; gap:12px; padding:12px 0;
+    border-bottom:1px solid var(--border); font-size:14px; color:var(--ink); font-weight:600; line-height:1.5;
+  }
+  .winners-col .winner-item:last-child{ border-bottom:none; }
+  .winner-item .diamond{ width:9px; height:9px; background:var(--green-500); transform:rotate(45deg); flex-shrink:0; }
+
   /* ===== Registration ===== */
   .register{ background:linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%); }
   .register-card{
@@ -344,6 +365,8 @@
     .goals-grid{ grid-template-columns:1fr; }
     .dimensions-grid{ grid-template-columns:1fr; }
     .timeline{ grid-template-columns:repeat(2,1fr); }
+    .winners-card{ padding:26px 20px; }
+    .winners-grid{ grid-template-columns:1fr; gap:0; }
   }
   @media (max-width: 480px){
     .brand-text{ display:none; }
@@ -536,6 +559,41 @@
       <div class="timeline-step"><span class="step-num">6</span><span data-ar="التحكيم" data-en="Judging">التحكيم</span></div>
       <div class="timeline-step"><span class="step-num">7</span><span data-ar="إعلان النتائج" data-en="Results Announcement">إعلان النتائج</span></div>
       <div class="timeline-step"><span class="step-num">8</span><span data-ar="حفل التكريم" data-en="Award Ceremony">حفل التكريم</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="winners fade-in" id="winners">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow" data-ar="المصانع الفائزة" data-en="Award Winners">المصانع الفائزة</span>
+      <h2 data-ar="أسماء المصانع الفائزة في النسخة الثانية" data-en="Winning Factories – 2nd Edition">أسماء المصانع الفائزة في النسخة الثانية</h2>
+    </div>
+    <div class="winners-card">
+      <span class="winners-date" data-ar="في 23/2/2024م" data-en="February 23, 2024">في 23/2/2024م</span>
+      <p class="winners-intro" data-ar="كرّم صاحب السمو الملكي الأمير سعود بن نايف أمير المنطقة الشرقية المصانع الفائزة في مكتب سمو أمير المنطقة الشرقية بديوان إمارة المنطقة الشرقية." data-en="His Royal Highness Prince Saud bin Nayef, Governor of the Eastern Province, honored the winning factories at the Office of the Governor of the Eastern Province, Eastern Province Emirate Diwan.">كرّم صاحب السمو الملكي الأمير سعود بن نايف أمير المنطقة الشرقية المصانع الفائزة في مكتب سمو أمير المنطقة الشرقية بديوان إمارة المنطقة الشرقية.</p>
+      <div class="winners-grid">
+        <div class="winners-col">
+          <div class="winner-item"><span class="diamond"></span><span data-ar="1- شركة أنابيب الشرق المتكاملة لصناعة مساهمة مدرجة" data-en="1. Eastern Pipes Integrated Company (Listed Joint Stock)">1- شركة أنابيب الشرق المتكاملة لصناعة مساهمة مدرجة</span></div>
+          <div class="winner-item"><span class="diamond"></span><span data-ar="2- شركة إن أو في العربية السعودية المحدودة" data-en="2. NOV Saudi Arabia Limited">2- شركة إن أو في العربية السعودية المحدودة</span></div>
+          <div class="winner-item"><span class="diamond"></span><span data-ar="3- مصنع بوليمرات النفط والغاز" data-en="3. Oil & Gas Polymers Factory">3- مصنع بوليمرات النفط والغاز</span></div>
+          <div class="winner-item"><span class="diamond"></span><span data-ar="4- شركة كوفك إنجيزر سوليوشنز الشرق الأوسط للصناعة" data-en="4. Kovac Engineered Solutions Middle East for Industry">4- شركة كوفك إنجيزر سوليوشنز الشرق الأوسط للصناعة</span></div>
+          <div class="winner-item"><span class="diamond"></span><span data-ar="5- شركة فالوريك العربية السعودية" data-en="5. Vallourec Saudi Arabia">5- شركة فالوريك العربية السعودية</span></div>
+          <div class="winner-item"><span class="diamond"></span><span data-ar="6- شركة الموجان للمرطبات" data-en="6. Al-Mojan Beverages Company">6- شركة الموجان للمرطبات</span></div>
+          <div class="winner-item"><span class="diamond"></span><span data-ar="7- الشركة السعودية لصناعات أطباق الفوم" data-en="7. Saudi Foam Plates Industries Company">7- الشركة السعودية لصناعات أطباق الفوم</span></div>
+          <div class="winner-item"><span class="diamond"></span><span data-ar="8- شركة إن أو في فاير جلاس سيستمز المحدودة" data-en="8. NOV Fiber Glass Systems Limited">8- شركة إن أو في فاير جلاس سيستمز المحدودة</span></div>
+        </div>
+        <div class="winners-col">
+          <div class="winner-item"><span class="diamond"></span><span data-ar="9- مصنع شركة الخريف للبترول للمضخات الكهربائية الغاطسة" data-en="9. Al-Khorayef Petroleum Factory for Electric Submersible Pumps">9- مصنع شركة الخريف للبترول للمضخات الكهربائية الغاطسة</span></div>
+          <div class="winner-item"><span class="diamond"></span><span data-ar="10- شركة بيكر هيوز العربية السعودية للتشغيل والصيانة" data-en="10. Baker Hughes Saudi Arabia for Operations & Maintenance">10- شركة بيكر هيوز العربية السعودية للتشغيل والصيانة</span></div>
+          <div class="winner-item"><span class="diamond"></span><span data-ar="11- شركة تاكر الوطنية مساهمة مقفلة" data-en="11. National Tacker Company (Closed Joint Stock)">11- شركة تاكر الوطنية مساهمة مقفلة</span></div>
+          <div class="winner-item"><span class="diamond"></span><span data-ar="12- الشركة السعودية لتحويل الورق" data-en="12. Saudi Paper Converting Company">12- الشركة السعودية لتحويل الورق</span></div>
+          <div class="winner-item"><span class="diamond"></span><span data-ar="13- شركة بيكرهيوز أويلتولز السعودية المحدودة" data-en="13. Baker Hughes Oil Tools Saudi Limited">13- شركة بيكرهيوز أويلتولز السعودية المحدودة</span></div>
+          <div class="winner-item"><span class="diamond"></span><span data-ar="14- شركة الزامل للمكيفات المركزية (شركة شخص واحد)" data-en="14. Zamil Central Air Conditioners Company (Single Person Company)">14- شركة الزامل للمكيفات المركزية (شركة شخص واحد)</span></div>
+          <div class="winner-item"><span class="diamond"></span><span data-ar="15- الشركة السعودية الألمانية للمنتجات غير المعزولة" data-en="15. Saudi German Company for Non-Insulated Products">15- الشركة السعودية الألمانية للمنتجات غير المعزولة</span></div>
+          <div class="winner-item"><span class="diamond"></span><span data-ar="16- مصنع سيليكات الصوديوم فرع شركة عدوان للصناعات الكيماوية المحدود" data-en="16. Sodium Silicate Factory, a Branch of Adwan Chemical Industries Ltd.">16- مصنع سيليكات الصوديوم فرع شركة عدوان للصناعات الكيماوية المحدود</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
