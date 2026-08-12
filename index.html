@@ -232,6 +232,18 @@
   .dimension-card.economic li::before{ background:var(--gold); }
   .dimension-card.social li::before{ background:var(--blue); }
 
+  /* ===== Award Scope ===== */
+  .scope{ background:#fff; }
+  .scope-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:16px; }
+  .scope-item{
+    display:flex; align-items:center; gap:12px; background:var(--bg-soft);
+    border:1px solid var(--border); border-radius:999px; padding:14px 28px;
+  }
+  .scope-item .diamond{
+    width:12px; height:12px; background:var(--green-500); transform:rotate(45deg); flex-shrink:0;
+  }
+  .scope-item span:last-child{ font-size:15px; font-weight:700; color:var(--green-900); }
+
   /* ===== Process timeline ===== */
   .process{ background:#fff; }
   .timeline{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
@@ -458,6 +470,21 @@
           <li data-ar="المشاركة في المسؤولية المجتمعية بما يعزز سمعة المصنع ويقوي العلاقة مع المجتمع" data-en="Engaging in community responsibility that enhances the factory's reputation and strengthens community ties">المشاركة في المسؤولية المجتمعية بما يعزز سمعة المصنع ويقوي العلاقة مع المجتمع</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="scope fade-in" id="scope">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow" data-ar="نطاق الجائزة" data-en="Award Scope">نطاق الجائزة</span>
+      <h2 data-ar="النطاق القطاعي" data-en="Sectoral Scope">النطاق القطاعي</h2>
+    </div>
+    <div class="scope-row">
+      <div class="scope-item"><span class="diamond"></span><span data-ar="المصانع" data-en="Factories">المصانع</span></div>
+      <div class="scope-item"><span class="diamond"></span><span data-ar="المدن الصناعية" data-en="Industrial Cities">المدن الصناعية</span></div>
+      <div class="scope-item"><span class="diamond"></span><span data-ar="المنشآت الصناعية" data-en="Industrial Facilities">المنشآت الصناعية</span></div>
+      <div class="scope-item"><span class="diamond"></span><span data-ar="المنشآت الخاصة" data-en="Private Facilities">المنشآت الخاصة</span></div>
     </div>
   </div>
 </section>
