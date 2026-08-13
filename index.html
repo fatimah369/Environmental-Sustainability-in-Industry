@@ -282,6 +282,13 @@
     background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius);
     box-shadow:var(--shadow); padding:40px;
   }
+  .winners-card + .winners-card{ margin-top:28px; }
+  .winners-edition{
+    font-size:13px; font-weight:800; color:var(--green-600); text-transform:uppercase;
+    letter-spacing:.06em; margin:0 0 10px;
+  }
+  html[lang="ar"] .winners-edition{ text-transform:none; letter-spacing:.02em; }
+  .winners-grid.single{ grid-template-columns:1fr; max-width:420px; margin:0 auto; }
   .winners-date{
     display:inline-flex; background:#fff; border:1px solid var(--border);
     border-radius:999px; padding:8px 20px; font-size:13px; font-weight:800; color:var(--green-700);
@@ -600,9 +607,25 @@
   <div class="container">
     <div class="section-head">
       <span class="section-eyebrow" data-ar="المصانع الفائزة" data-en="Award Winners">المصانع الفائزة</span>
-      <h2 data-ar="أسماء المصانع الفائزة في النسخة الثانية" data-en="Winning Factories – 2nd Edition">أسماء المصانع الفائزة في النسخة الثانية</h2>
+      <h2 data-ar="أسماء المصانع الفائزة عبر النسخ السابقة" data-en="Winning Factories Across Previous Editions">أسماء المصانع الفائزة عبر النسخ السابقة</h2>
     </div>
     <div class="winners-card">
+      <h3 class="winners-edition" data-ar="النسخة الأولى" data-en="1st Edition">النسخة الأولى</h3>
+      <span class="winners-date" data-ar="في 26/7/2021م" data-en="July 26, 2021">في 26/7/2021م</span>
+      <p class="winners-intro" data-ar="كرّم صاحب السمو الملكي الأمير سعود بن نايف أمير المنطقة الشرقية المصانع الفائزة في مكتب سمو أمير المنطقة الشرقية بديوان إمارة المنطقة الشرقية." data-en="His Royal Highness Prince Saud bin Nayef, Governor of the Eastern Province, honored the winning factories at the Office of the Governor of the Eastern Province, Eastern Province Emirate Diwan.">كرّم صاحب السمو الملكي الأمير سعود بن نايف أمير المنطقة الشرقية المصانع الفائزة في مكتب سمو أمير المنطقة الشرقية بديوان إمارة المنطقة الشرقية.</p>
+      <div class="winners-grid single">
+        <div class="winners-col">
+          <div class="winner-item"><span class="diamond"></span><span data-ar="1- الشركة السعودية للمأكولات الخفيفة" data-en="1. Saudi Snack Foods Company">1- الشركة السعودية للمأكولات الخفيفة</span></div>
+          <div class="winner-item"><span class="diamond"></span><span data-ar="2- شركة NOV العربية" data-en="2. NOV Arabia Company">2- شركة NOV العربية</span></div>
+          <div class="winner-item"><span class="diamond"></span><span data-ar="3- الشركة العربية لصناعة الورق" data-en="3. Arabian Paper Manufacturing Company">3- الشركة العربية لصناعة الورق</span></div>
+          <div class="winner-item"><span class="diamond"></span><span data-ar="4- شركة المخاليط العلفية" data-en="4. Feed Mixtures Company">4- شركة المخاليط العلفية</span></div>
+          <div class="winner-item"><span class="diamond"></span><span data-ar="5- مصنع مران للصناعة" data-en="5. Maran Factory for Industry">5- مصنع مران للصناعة</span></div>
+          <div class="winner-item"><span class="diamond"></span><span data-ar="6- منتجات المعادن المشكلة" data-en="6. Formed Metal Products">6- منتجات المعادن المشكلة</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="winners-card">
+      <h3 class="winners-edition" data-ar="النسخة الثانية" data-en="2nd Edition">النسخة الثانية</h3>
       <span class="winners-date" data-ar="في 23/2/2024م" data-en="February 23, 2024">في 23/2/2024م</span>
       <p class="winners-intro" data-ar="كرّم صاحب السمو الملكي الأمير سعود بن نايف أمير المنطقة الشرقية المصانع الفائزة في مكتب سمو أمير المنطقة الشرقية بديوان إمارة المنطقة الشرقية." data-en="His Royal Highness Prince Saud bin Nayef, Governor of the Eastern Province, honored the winning factories at the Office of the Governor of the Eastern Province, Eastern Province Emirate Diwan.">كرّم صاحب السمو الملكي الأمير سعود بن نايف أمير المنطقة الشرقية المصانع الفائزة في مكتب سمو أمير المنطقة الشرقية بديوان إمارة المنطقة الشرقية.</p>
       <div class="winners-grid">
