@@ -357,6 +357,27 @@
   .winners-col .winner-item:last-child{ border-bottom:none; }
   .winner-item .diamond{ width:9px; height:9px; background:var(--green-500); transform:rotate(45deg); flex-shrink:0; }
 
+  /* ===== FAQ ===== */
+  .faq{ background:#fff; }
+  .faq-list{ max-width:820px; margin:0 auto; display:flex; flex-direction:column; gap:14px; }
+  .faq-item{
+    background:var(--bg-soft); border:1px solid var(--border); border-radius:14px;
+    padding:4px 22px;
+  }
+  .faq-item summary{
+    cursor:pointer; list-style:none; padding:18px 0;
+    font-size:15.5px; font-weight:800; color:var(--green-900);
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary .faq-toggle{
+    flex-shrink:0; width:26px; height:26px; border-radius:50%; background:#fff;
+    border:1px solid var(--border); display:flex; align-items:center; justify-content:center;
+    font-size:16px; font-weight:700; color:var(--green-600); transition:transform .2s ease;
+  }
+  .faq-item[open] summary .faq-toggle{ transform:rotate(45deg); }
+  .faq-item .faq-answer{ padding:0 0 20px; font-size:14.5px; line-height:1.9; color:var(--ink-soft); }
+
   /* ===== Registration ===== */
   .register{ background:linear-gradient(180deg, #fff 0%, var(--bg-soft) 100%); }
   .register-card{
@@ -841,6 +862,41 @@
           <div class="winner-item"><span class="diamond"></span><span data-ar="16- مصنع سيليكات الصوديوم فرع شركة عدوان للصناعات الكيماوية المحدود" data-en="16. Sodium Silicate Factory, a Branch of Adwan Chemical Industries Ltd.">16- مصنع سيليكات الصوديوم فرع شركة عدوان للصناعات الكيماوية المحدود</span></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq fade-in" id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow" data-ar="الأسئلة الشائعة" data-en="FAQ">الأسئلة الشائعة</span>
+      <h2 data-ar="الأسئلة الشائعة" data-en="Frequently Asked Questions">الأسئلة الشائعة</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary><span data-ar="ما هي معايير وضوابط المشاركة في جائزة المصنع المثالي؟" data-en="What are the participation criteria and requirements for the Ideal Factory Award?">ما هي معايير وضوابط المشاركة في جائزة المصنع المثالي؟</span><span class="faq-toggle">+</span></summary>
+        <div class="faq-answer" data-ar="تتطلب المشاركة تعبئة استمارة التأهيل المتاحة ضمن استمارة التسجيل في هذه الصفحة." data-en="Participation requires completing the qualification form available in the registration form on this page.">تتطلب المشاركة تعبئة استمارة التأهيل المتاحة ضمن استمارة التسجيل في هذه الصفحة.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span data-ar="هل توجد أي رسوم مالية للاشتراك في المبادرة؟" data-en="Are there any fees to join the initiative?">هل توجد أي رسوم مالية للاشتراك في المبادرة؟</span><span class="faq-toggle">+</span></summary>
+        <div class="faq-answer" data-ar="لا، الاشتراك مجاني بالكامل، ويأتي توجيهًا من سمو أمير المنطقة الشرقية لتشجيع المصانع والشركات على الانضمام وتحقيق رؤية المملكة 2030." data-en="No, participation is completely free, and comes as a directive from His Highness the Governor of the Eastern Province to encourage factories and companies to join and help achieve the Kingdom's Vision 2030.">لا، الاشتراك مجاني بالكامل، ويأتي توجيهًا من سمو أمير المنطقة الشرقية لتشجيع المصانع والشركات على الانضمام وتحقيق رؤية المملكة 2030.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span data-ar="هل الزيارات الميدانية للمنشآت المشاركة إجبارية؟" data-en="Are field visits to participating facilities mandatory?">هل الزيارات الميدانية للمنشآت المشاركة إجبارية؟</span><span class="faq-toggle">+</span></summary>
+        <div class="faq-answer" data-ar="نعم، تعد الزيارات الميدانية إلزامية لكونها جزءًا أساسيًا من عملية التقييم التي تشرف عليها اللجان المختصة لاختيار الفائزين." data-en="Yes, field visits are mandatory as they are an essential part of the evaluation process overseen by specialized committees to select the winners.">نعم، تعد الزيارات الميدانية إلزامية لكونها جزءًا أساسيًا من عملية التقييم التي تشرف عليها اللجان المختصة لاختيار الفائزين.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span data-ar="هل يمكن للمنشأة المشاركة بأكثر من كيان أو فرع؟" data-en="Can a facility participate with more than one entity or branch?">هل يمكن للمنشأة المشاركة بأكثر من كيان أو فرع؟</span><span class="faq-toggle">+</span></summary>
+        <div class="faq-answer" data-ar="نعم، تتاح المشاركة لجميع المؤسسات داخل نطاق المنطقة الشرقية سواء كانت صناعية أو غير صناعية، حيث تركز الفكرة الأساسية على تعزيز ودعم الاستدامة البيئية." data-en="Yes, participation is open to all establishments within the Eastern Region, whether industrial or non-industrial, as the core idea focuses on strengthening and supporting environmental sustainability.">نعم، تتاح المشاركة لجميع المؤسسات داخل نطاق المنطقة الشرقية سواء كانت صناعية أو غير صناعية، حيث تركز الفكرة الأساسية على تعزيز ودعم الاستدامة البيئية.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span data-ar="ما الذي يشمله الدعم المالي أو الرعاية في المبادرة؟" data-en="What does the financial support or sponsorship in the initiative cover?">ما الذي يشمله الدعم المالي أو الرعاية في المبادرة؟</span><span class="faq-toggle">+</span></summary>
+        <div class="faq-answer" data-ar="يخصص الدعم لرعاية مبادرة المصنع المثالي، والإنفاق على برامج ومشاريع التوعية بالاستدامة البيئية." data-en="The support is allocated to sponsoring the Ideal Factory initiative and funding environmental sustainability awareness programs and projects.">يخصص الدعم لرعاية مبادرة المصنع المثالي، والإنفاق على برامج ومشاريع التوعية بالاستدامة البيئية.</div>
+      </details>
+      <details class="faq-item">
+        <summary><span data-ar="من هو الشخص المعتمد لتمثيل الشركة في حفل التكريم؟" data-en="Who is the authorized person to represent the company at the honoring ceremony?">من هو الشخص المعتمد لتمثيل الشركة في حفل التكريم؟</span><span class="faq-toggle">+</span></summary>
+        <div class="faq-answer" data-ar="يحدد ذلك وفقًا لسياسة الشركة الداخلية؛ حيث يمكن أن يمثلها مالك الشركة، أو الرئيس التنفيذي، أو رئيس مجلس الإدارة، أو من ينوب عنهم رسميًا." data-en="This is determined according to the company's internal policy; the company may be represented by its owner, CEO, chairman of the board, or an officially authorized representative.">يحدد ذلك وفقًا لسياسة الشركة الداخلية؛ حيث يمكن أن يمثلها مالك الشركة، أو الرئيس التنفيذي، أو رئيس مجلس الإدارة، أو من ينوب عنهم رسميًا.</div>
+      </details>
     </div>
   </div>
 </section>
