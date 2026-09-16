@@ -395,27 +395,42 @@
     font-size:14px; color:var(--ink-soft);
   }
   .criteria-score-label b{ color:var(--green-800); font-size:19px; }
-  .criteria-groups{ display:flex; flex-direction:column; gap:22px; margin-bottom:32px; }
+  .criteria-groups{ display:flex; flex-direction:column; gap:16px; margin-bottom:24px; }
   .criteria-group{
     background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius);
-    box-shadow:var(--shadow); padding:26px 28px;
+    box-shadow:var(--shadow); padding:20px 24px;
   }
   .criteria-group-head{
     display:flex; align-items:center; justify-content:space-between; gap:12px;
-    margin-bottom:16px; padding-bottom:14px; border-bottom:1px solid var(--border);
+    margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid var(--border);
   }
-  .criteria-group-head > span:first-child{ font-size:16px; font-weight:800; color:var(--green-900); }
+  .criteria-group-head > span:first-child{ font-size:15px; font-weight:800; color:var(--green-900); }
   .criteria-group-head .weight{
-    flex-shrink:0; background:var(--green-700); color:#fff; font-size:13px; font-weight:800;
-    padding:4px 14px; border-radius:999px;
+    flex-shrink:0; background:var(--green-700); color:#fff; font-size:12.5px; font-weight:800;
+    padding:3px 12px; border-radius:999px;
   }
-  .criteria-check{ display:flex; align-items:flex-start; gap:12px; padding:9px 0; cursor:pointer; }
-  .criteria-check input{ margin-top:3px; width:18px; height:18px; accent-color:var(--green-600); flex-shrink:0; cursor:pointer; }
-  .criteria-check span{ font-size:14px; line-height:1.75; color:var(--ink-soft); }
-  .criteria-check input:checked ~ span{ color:var(--green-900); font-weight:700; }
-  .criteria-required{ background:var(--bg-soft); border:1px dashed var(--border); border-radius:var(--radius); padding:26px 28px; }
-  .criteria-required h3{ font-size:15px; font-weight:800; color:var(--green-900); margin:0 0 14px; }
-  .criteria-required .criteria-check input{ accent-color:var(--blue); }
+  .criteria-list{ display:grid; grid-template-columns:1fr; gap:2px; }
+  .criteria-list.two-col{ grid-template-columns:1fr 1fr; column-gap:20px; }
+  .criteria-check{ display:flex; align-items:center; gap:10px; padding:7px 0; cursor:pointer; }
+  .criteria-check input{ position:absolute; opacity:0; width:0; height:0; }
+  .criteria-check .check-icon{
+    flex-shrink:0; width:24px; height:24px; border-radius:50%;
+    border:1.5px solid var(--border); background:#fff;
+    display:flex; align-items:center; justify-content:center;
+    transition:background .2s ease, border-color .2s ease;
+  }
+  .criteria-check .check-icon svg{ width:12px; height:12px; stroke-width:3.5; fill:none; }
+  .criteria-check .check-icon .icon-yes{ display:none; stroke:#fff; }
+  .criteria-check .check-icon .icon-no{ display:block; stroke:#c94b4b; opacity:.45; }
+  .criteria-check input:checked ~ .check-icon{ background:var(--green-500); border-color:var(--green-500); }
+  .criteria-check input:checked ~ .check-icon .icon-yes{ display:block; }
+  .criteria-check input:checked ~ .check-icon .icon-no{ display:none; }
+  .criteria-check span.label-text{ font-size:13.5px; line-height:1.6; color:var(--ink-soft); }
+  .criteria-check input:checked ~ span.label-text{ color:var(--green-900); font-weight:700; }
+  .criteria-required{ background:var(--bg-soft); border:1px dashed var(--border); border-radius:var(--radius); padding:20px 24px; }
+  .criteria-required h3{ font-size:14.5px; font-weight:800; color:var(--green-900); margin:0 0 10px; }
+  .criteria-required .criteria-check input:checked ~ .check-icon{ background:var(--blue); border-color:var(--blue); }
+  .criteria-required .check-icon .icon-no{ display:none; }
 
   /* ===== FAQ ===== */
   .faq{ background:#fff; }
@@ -538,6 +553,8 @@
     .milestones-path{ grid-template-columns:1fr; }
     .milestones-stats{ grid-template-columns:repeat(3,1fr); }
     .winners-grid{ grid-template-columns:1fr; gap:0; }
+    .criteria-list.two-col{ grid-template-columns:1fr; }
+    .criteria-group{ padding:18px 18px; }
   }
   @media (max-width: 480px){
     .brand-text{ display:none; }
@@ -968,10 +985,13 @@
           <span data-ar="كفاءة الطاقة وخفض الانبعاثات الكربونية" data-en="Energy Efficiency &amp; Carbon Emission Reduction">كفاءة الطاقة وخفض الانبعاثات الكربونية</span>
           <span class="weight">25%</span>
         </div>
-        <label class="criteria-check">
-          <input type="checkbox" data-points="25">
-          <span data-ar="التركيز على تقليل استهلاك الطاقة لكل وحدة إنتاج، واستخدام تقنيات خفض الانبعاثات الكربونية." data-en="Focus on reducing energy consumption per production unit and using carbon-reduction technologies.">التركيز على تقليل استهلاك الطاقة لكل وحدة إنتاج، واستخدام تقنيات خفض الانبعاثات الكربونية.</span>
-        </label>
+        <div class="criteria-list">
+          <label class="criteria-check">
+            <input type="checkbox" data-points="25">
+            <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><svg class="icon-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+            <span class="label-text" data-ar="تقليل استهلاك الطاقة لكل وحدة إنتاج واستخدام تقنيات خفض الانبعاثات" data-en="Reducing energy use per production unit and using emission-reduction technologies">تقليل استهلاك الطاقة لكل وحدة إنتاج واستخدام تقنيات خفض الانبعاثات</span>
+          </label>
+        </div>
       </div>
 
       <div class="criteria-group">
@@ -979,34 +999,43 @@
           <span data-ar="الالتزام بالأنظمة البيئية" data-en="Compliance with Environmental Regulations">الالتزام بالأنظمة البيئية</span>
           <span class="weight">15%</span>
         </div>
-        <label class="criteria-check">
-          <input type="checkbox" data-points="2.142857">
-          <span data-ar="النظام العام للبيئة ولائحته التنفيذية: التشريع المظلي الصادر عن المركز الوطني للرقابة على الالتزام البيئي (NCEC)." data-en="General Environmental Law and its executive regulations: the umbrella legislation issued by the National Center for Environmental Compliance (NCEC).">النظام العام للبيئة ولائحته التنفيذية: التشريع المظلي الصادر عن المركز الوطني للرقابة على الالتزام البيئي (NCEC).</span>
-        </label>
-        <label class="criteria-check">
-          <input type="checkbox" data-points="2.142857">
-          <span data-ar="التصريح البيئي للإنشاء والتشغيل: وثيقة الترخيص الصادرة بعد تقييم الأثر البيئي (EIA) للمنشأة." data-en="Environmental Permit for Construction &amp; Operation: the licensing document issued after an Environmental Impact Assessment (EIA) of the facility.">التصريح البيئي للإنشاء والتشغيل: وثيقة الترخيص الصادرة بعد تقييم الأثر البيئي (EIA) للمنشأة.</span>
-        </label>
-        <label class="criteria-check">
-          <input type="checkbox" data-points="2.142857">
-          <span data-ar="المقاييس الوطنية لجودة الهواء والانبعاثات: حدود تركيز الملوثات الغازية والغبار الصادر من المداخن والعمليات التشغيلية." data-en="National Air Quality &amp; Emissions Standards: concentration limits for gaseous pollutants and dust from stacks and operational processes.">المقاييس الوطنية لجودة الهواء والانبعاثات: حدود تركيز الملوثات الغازية والغبار الصادر من المداخن والعمليات التشغيلية.</span>
-        </label>
-        <label class="criteria-check">
-          <input type="checkbox" data-points="2.142857">
-          <span data-ar="مقاييس إدارة الصرف الصناعي والسائل: معايير جودة المياه المُنصرفة ومنع تصريف المواد الخطرة في الشبكات العامة أو البيئة." data-en="Industrial &amp; Liquid Discharge Management Standards: quality criteria for discharged water and prevention of hazardous material discharge into public networks or the environment.">مقاييس إدارة الصرف الصناعي والسائل: معايير جودة المياه المُنصرفة ومنع تصريف المواد الخطرة في الشبكات العامة أو البيئة.</span>
-        </label>
-        <label class="criteria-check">
-          <input type="checkbox" data-points="2.142857">
-          <span data-ar="إدارة المواد والنفايات الخطرة: لوائح نقل وتداول وتخزين المواد الكيميائية والنفايات الصناعية والتخلص الآمن منها عبر ناقلين معتمدين." data-en="Hazardous Materials &amp; Waste Management: regulations for transporting, handling, and storing chemicals and industrial waste, and their safe disposal via licensed carriers.">إدارة المواد والنفايات الخطرة: لوائح نقل وتداول وتخزين المواد الكيميائية والنفايات الصناعية والتخلص الآمن منها عبر ناقلين معتمدين.</span>
-        </label>
-        <label class="criteria-check">
-          <input type="checkbox" data-points="2.142857">
-          <span data-ar="شهادات المطابقة القياسية: شهادة نظام الإدارة البيئية ISO 14001 واشتراطات الهيئة السعودية للمواصفات والمقاييس والجودة (SASO)." data-en="Standard Compliance Certificates: ISO 14001 Environmental Management System certification and Saudi Standards, Metrology and Quality Organization (SASO) requirements.">شهادات المطابقة القياسية: شهادة نظام الإدارة البيئية ISO 14001 واشتراطات الهيئة السعودية للمواصفات والمقاييس والجودة (SASO).</span>
-        </label>
-        <label class="criteria-check">
-          <input type="checkbox" data-points="2.142857">
-          <span data-ar="اشتراطات المدن الصناعية: اللوائح البيئية الخاصة بالهيئة السعودية للمدن الصناعية ومناطق التقنية (مدن) أو الهيئة الملكية، بحسب موقع المصنع." data-en="Industrial Cities Requirements: the environmental regulations of the Saudi Authority for Industrial Cities and Technology Zones (MODON) or the Royal Commission, depending on the factory's location.">اشتراطات المدن الصناعية: اللوائح البيئية الخاصة بالهيئة السعودية للمدن الصناعية ومناطق التقنية (مدن) أو الهيئة الملكية، بحسب موقع المصنع.</span>
-        </label>
+        <div class="criteria-list two-col">
+          <label class="criteria-check">
+            <input type="checkbox" data-points="2.142857">
+            <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><svg class="icon-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+            <span class="label-text" data-ar="النظام العام للبيئة (NCEC)" data-en="General Environmental Law (NCEC)">النظام العام للبيئة (NCEC)</span>
+          </label>
+          <label class="criteria-check">
+            <input type="checkbox" data-points="2.142857">
+            <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><svg class="icon-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+            <span class="label-text" data-ar="التصريح البيئي للإنشاء والتشغيل (EIA)" data-en="Environmental Permit for Construction &amp; Operation (EIA)">التصريح البيئي للإنشاء والتشغيل (EIA)</span>
+          </label>
+          <label class="criteria-check">
+            <input type="checkbox" data-points="2.142857">
+            <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><svg class="icon-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+            <span class="label-text" data-ar="مقاييس جودة الهواء والانبعاثات" data-en="Air Quality &amp; Emissions Standards">مقاييس جودة الهواء والانبعاثات</span>
+          </label>
+          <label class="criteria-check">
+            <input type="checkbox" data-points="2.142857">
+            <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><svg class="icon-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+            <span class="label-text" data-ar="مقاييس الصرف الصناعي والسائل" data-en="Industrial &amp; Liquid Discharge Standards">مقاييس الصرف الصناعي والسائل</span>
+          </label>
+          <label class="criteria-check">
+            <input type="checkbox" data-points="2.142857">
+            <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><svg class="icon-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+            <span class="label-text" data-ar="إدارة المواد والنفايات الخطرة" data-en="Hazardous Materials &amp; Waste Management">إدارة المواد والنفايات الخطرة</span>
+          </label>
+          <label class="criteria-check">
+            <input type="checkbox" data-points="2.142857">
+            <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><svg class="icon-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+            <span class="label-text" data-ar="شهادات ISO 14001 و SASO" data-en="ISO 14001 &amp; SASO Certifications">شهادات ISO 14001 و SASO</span>
+          </label>
+          <label class="criteria-check">
+            <input type="checkbox" data-points="2.142857">
+            <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><svg class="icon-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+            <span class="label-text" data-ar="اشتراطات المدن الصناعية (مدن/الهيئة الملكية)" data-en="Industrial Cities Requirements (MODON/Royal Commission)">اشتراطات المدن الصناعية (مدن/الهيئة الملكية)</span>
+          </label>
+        </div>
       </div>
 
       <div class="criteria-group">
@@ -1014,23 +1043,30 @@
           <span data-ar="المسؤولية الاجتماعية والإفصاح البيئي" data-en="Social Responsibility &amp; Environmental Disclosure">المسؤولية الاجتماعية والإفصاح البيئي</span>
           <span class="weight">10%</span>
         </div>
-        <label class="criteria-check">
-          <input type="checkbox" data-points="10">
-          <span data-ar="شفافية التقارير البيئية، وتوعية العاملين والمجتمع المحلي." data-en="Transparency of environmental reports, and awareness among employees and the local community.">شفافية التقارير البيئية، وتوعية العاملين والمجتمع المحلي.</span>
-        </label>
+        <div class="criteria-list">
+          <label class="criteria-check">
+            <input type="checkbox" data-points="10">
+            <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><svg class="icon-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+            <span class="label-text" data-ar="شفافية التقارير البيئية وتوعية العاملين والمجتمع المحلي" data-en="Transparency of environmental reports and awareness among employees and the local community">شفافية التقارير البيئية وتوعية العاملين والمجتمع المحلي</span>
+          </label>
+        </div>
       </div>
     </div>
 
     <div class="criteria-required">
       <h3 data-ar="متطلبات التأهل الأساسية" data-en="Basic Eligibility Requirements">متطلبات التأهل الأساسية</h3>
-      <label class="criteria-check">
-        <input type="checkbox">
-        <span data-ar="تعبئة استمارة التقديم والتأهيل الرسمية مع إرفاق المستندات المعتمدة." data-en="Completing the official application/qualification form with the required supporting documents attached.">تعبئة استمارة التقديم والتأهيل الرسمية مع إرفاق المستندات المعتمدة.</span>
-      </label>
-      <label class="criteria-check">
-        <input type="checkbox">
-        <span data-ar="الاستعداد للزيارات الميدانية والتفتيش الفني للتأكد من مطابقة المعايير على أرض الواقع." data-en="Readiness for field visits and technical inspections to verify on-site compliance with the criteria.">الاستعداد للزيارات الميدانية والتفتيش الفني للتأكد من مطابقة المعايير على أرض الواقع.</span>
-      </label>
+      <div class="criteria-list two-col">
+        <label class="criteria-check">
+          <input type="checkbox">
+          <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><svg class="icon-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+          <span class="label-text" data-ar="تعبئة استمارة التقديم والتأهيل مع المستندات المعتمدة" data-en="Completing the application/qualification form with supporting documents">تعبئة استمارة التقديم والتأهيل مع المستندات المعتمدة</span>
+        </label>
+        <label class="criteria-check">
+          <input type="checkbox">
+          <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg><svg class="icon-no" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span>
+          <span class="label-text" data-ar="الاستعداد للزيارات الميدانية والتفتيش الفني" data-en="Readiness for field visits and technical inspections">الاستعداد للزيارات الميدانية والتفتيش الفني</span>
+        </label>
+      </div>
     </div>
   </div>
 </section>
