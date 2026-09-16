@@ -357,6 +357,43 @@
   .winners-col .winner-item:last-child{ border-bottom:none; }
   .winner-item .diamond{ width:9px; height:9px; background:var(--green-500); transform:rotate(45deg); flex-shrink:0; }
 
+  /* ===== Criteria self-assessment ===== */
+  .criteria{ background:#fff; }
+  .criteria-score-bar{ max-width:680px; margin:0 auto 48px; }
+  .criteria-score-track{
+    height:14px; border-radius:999px; background:var(--bg-soft); border:1px solid var(--border); overflow:hidden;
+  }
+  .criteria-score-fill{
+    height:100%; width:0%; background:linear-gradient(90deg,var(--green-500),var(--green-700));
+    border-radius:999px; transition:width .4s ease;
+  }
+  .criteria-score-label{
+    display:flex; justify-content:space-between; align-items:center; margin-top:10px;
+    font-size:14px; color:var(--ink-soft);
+  }
+  .criteria-score-label b{ color:var(--green-800); font-size:19px; }
+  .criteria-groups{ display:flex; flex-direction:column; gap:22px; margin-bottom:32px; }
+  .criteria-group{
+    background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:26px 28px;
+  }
+  .criteria-group-head{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    margin-bottom:16px; padding-bottom:14px; border-bottom:1px solid var(--border);
+  }
+  .criteria-group-head > span:first-child{ font-size:16px; font-weight:800; color:var(--green-900); }
+  .criteria-group-head .weight{
+    flex-shrink:0; background:var(--green-700); color:#fff; font-size:13px; font-weight:800;
+    padding:4px 14px; border-radius:999px;
+  }
+  .criteria-check{ display:flex; align-items:flex-start; gap:12px; padding:9px 0; cursor:pointer; }
+  .criteria-check input{ margin-top:3px; width:18px; height:18px; accent-color:var(--green-600); flex-shrink:0; cursor:pointer; }
+  .criteria-check span{ font-size:14px; line-height:1.75; color:var(--ink-soft); }
+  .criteria-check input:checked ~ span{ color:var(--green-900); font-weight:700; }
+  .criteria-required{ background:var(--bg-soft); border:1px dashed var(--border); border-radius:var(--radius); padding:26px 28px; }
+  .criteria-required h3{ font-size:15px; font-weight:800; color:var(--green-900); margin:0 0 14px; }
+  .criteria-required .criteria-check input{ accent-color:var(--blue); }
+
   /* ===== FAQ ===== */
   .faq{ background:#fff; }
   .faq-list{ max-width:820px; margin:0 auto; display:flex; flex-direction:column; gap:14px; }
@@ -866,6 +903,95 @@
   </div>
 </section>
 
+<section class="criteria fade-in" id="criteria">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow" data-ar="المعايير والشروط" data-en="Criteria & Requirements">المعايير والشروط</span>
+      <h2 data-ar="قيّم جاهزية منشأتكم للمشاركة" data-en="Assess Your Facility's Readiness">قيّم جاهزية منشأتكم للمشاركة</h2>
+      <p data-ar="فعّلوا كل بند تنطبق عليه منشأتكم لمعرفة مدى قربكم من تحقيق معايير التحكيم." data-en="Check off each item your facility meets to see how close you are to the judging criteria.">فعّلوا كل بند تنطبق عليه منشأتكم لمعرفة مدى قربكم من تحقيق معايير التحكيم.</p>
+    </div>
+
+    <div class="criteria-score-bar">
+      <div class="criteria-score-track"><div class="criteria-score-fill" id="criteriaFill"></div></div>
+      <div class="criteria-score-label">
+        <span data-ar="نقاط الجاهزية" data-en="Readiness Score">نقاط الجاهزية</span>
+        <b id="criteriaScoreText">0 / 50</b>
+      </div>
+    </div>
+
+    <div class="criteria-groups">
+      <div class="criteria-group">
+        <div class="criteria-group-head">
+          <span data-ar="كفاءة الطاقة وخفض الانبعاثات الكربونية" data-en="Energy Efficiency &amp; Carbon Emission Reduction">كفاءة الطاقة وخفض الانبعاثات الكربونية</span>
+          <span class="weight">25%</span>
+        </div>
+        <label class="criteria-check">
+          <input type="checkbox" data-points="25">
+          <span data-ar="التركيز على تقليل استهلاك الطاقة لكل وحدة إنتاج، واستخدام تقنيات خفض الانبعاثات الكربونية." data-en="Focus on reducing energy consumption per production unit and using carbon-reduction technologies.">التركيز على تقليل استهلاك الطاقة لكل وحدة إنتاج، واستخدام تقنيات خفض الانبعاثات الكربونية.</span>
+        </label>
+      </div>
+
+      <div class="criteria-group">
+        <div class="criteria-group-head">
+          <span data-ar="الالتزام بالأنظمة البيئية" data-en="Compliance with Environmental Regulations">الالتزام بالأنظمة البيئية</span>
+          <span class="weight">15%</span>
+        </div>
+        <label class="criteria-check">
+          <input type="checkbox" data-points="2.142857">
+          <span data-ar="النظام العام للبيئة ولائحته التنفيذية: التشريع المظلي الصادر عن المركز الوطني للرقابة على الالتزام البيئي (NCEC)." data-en="General Environmental Law and its executive regulations: the umbrella legislation issued by the National Center for Environmental Compliance (NCEC).">النظام العام للبيئة ولائحته التنفيذية: التشريع المظلي الصادر عن المركز الوطني للرقابة على الالتزام البيئي (NCEC).</span>
+        </label>
+        <label class="criteria-check">
+          <input type="checkbox" data-points="2.142857">
+          <span data-ar="التصريح البيئي للإنشاء والتشغيل: وثيقة الترخيص الصادرة بعد تقييم الأثر البيئي (EIA) للمنشأة." data-en="Environmental Permit for Construction &amp; Operation: the licensing document issued after an Environmental Impact Assessment (EIA) of the facility.">التصريح البيئي للإنشاء والتشغيل: وثيقة الترخيص الصادرة بعد تقييم الأثر البيئي (EIA) للمنشأة.</span>
+        </label>
+        <label class="criteria-check">
+          <input type="checkbox" data-points="2.142857">
+          <span data-ar="المقاييس الوطنية لجودة الهواء والانبعاثات: حدود تركيز الملوثات الغازية والغبار الصادر من المداخن والعمليات التشغيلية." data-en="National Air Quality &amp; Emissions Standards: concentration limits for gaseous pollutants and dust from stacks and operational processes.">المقاييس الوطنية لجودة الهواء والانبعاثات: حدود تركيز الملوثات الغازية والغبار الصادر من المداخن والعمليات التشغيلية.</span>
+        </label>
+        <label class="criteria-check">
+          <input type="checkbox" data-points="2.142857">
+          <span data-ar="مقاييس إدارة الصرف الصناعي والسائل: معايير جودة المياه المُنصرفة ومنع تصريف المواد الخطرة في الشبكات العامة أو البيئة." data-en="Industrial &amp; Liquid Discharge Management Standards: quality criteria for discharged water and prevention of hazardous material discharge into public networks or the environment.">مقاييس إدارة الصرف الصناعي والسائل: معايير جودة المياه المُنصرفة ومنع تصريف المواد الخطرة في الشبكات العامة أو البيئة.</span>
+        </label>
+        <label class="criteria-check">
+          <input type="checkbox" data-points="2.142857">
+          <span data-ar="إدارة المواد والنفايات الخطرة: لوائح نقل وتداول وتخزين المواد الكيميائية والنفايات الصناعية والتخلص الآمن منها عبر ناقلين معتمدين." data-en="Hazardous Materials &amp; Waste Management: regulations for transporting, handling, and storing chemicals and industrial waste, and their safe disposal via licensed carriers.">إدارة المواد والنفايات الخطرة: لوائح نقل وتداول وتخزين المواد الكيميائية والنفايات الصناعية والتخلص الآمن منها عبر ناقلين معتمدين.</span>
+        </label>
+        <label class="criteria-check">
+          <input type="checkbox" data-points="2.142857">
+          <span data-ar="شهادات المطابقة القياسية: شهادة نظام الإدارة البيئية ISO 14001 واشتراطات الهيئة السعودية للمواصفات والمقاييس والجودة (SASO)." data-en="Standard Compliance Certificates: ISO 14001 Environmental Management System certification and Saudi Standards, Metrology and Quality Organization (SASO) requirements.">شهادات المطابقة القياسية: شهادة نظام الإدارة البيئية ISO 14001 واشتراطات الهيئة السعودية للمواصفات والمقاييس والجودة (SASO).</span>
+        </label>
+        <label class="criteria-check">
+          <input type="checkbox" data-points="2.142857">
+          <span data-ar="اشتراطات المدن الصناعية: اللوائح البيئية الخاصة بالهيئة السعودية للمدن الصناعية ومناطق التقنية (مدن) أو الهيئة الملكية، بحسب موقع المصنع." data-en="Industrial Cities Requirements: the environmental regulations of the Saudi Authority for Industrial Cities and Technology Zones (MODON) or the Royal Commission, depending on the factory's location.">اشتراطات المدن الصناعية: اللوائح البيئية الخاصة بالهيئة السعودية للمدن الصناعية ومناطق التقنية (مدن) أو الهيئة الملكية، بحسب موقع المصنع.</span>
+        </label>
+      </div>
+
+      <div class="criteria-group">
+        <div class="criteria-group-head">
+          <span data-ar="المسؤولية الاجتماعية والإفصاح البيئي" data-en="Social Responsibility &amp; Environmental Disclosure">المسؤولية الاجتماعية والإفصاح البيئي</span>
+          <span class="weight">10%</span>
+        </div>
+        <label class="criteria-check">
+          <input type="checkbox" data-points="10">
+          <span data-ar="شفافية التقارير البيئية، وتوعية العاملين والمجتمع المحلي." data-en="Transparency of environmental reports, and awareness among employees and the local community.">شفافية التقارير البيئية، وتوعية العاملين والمجتمع المحلي.</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="criteria-required">
+      <h3 data-ar="متطلبات التأهل الأساسية" data-en="Basic Eligibility Requirements">متطلبات التأهل الأساسية</h3>
+      <label class="criteria-check">
+        <input type="checkbox">
+        <span data-ar="تعبئة استمارة التقديم والتأهيل الرسمية مع إرفاق المستندات المعتمدة." data-en="Completing the official application/qualification form with the required supporting documents attached.">تعبئة استمارة التقديم والتأهيل الرسمية مع إرفاق المستندات المعتمدة.</span>
+      </label>
+      <label class="criteria-check">
+        <input type="checkbox">
+        <span data-ar="الاستعداد للزيارات الميدانية والتفتيش الفني للتأكد من مطابقة المعايير على أرض الواقع." data-en="Readiness for field visits and technical inspections to verify on-site compliance with the criteria.">الاستعداد للزيارات الميدانية والتفتيش الفني للتأكد من مطابقة المعايير على أرض الواقع.</span>
+      </label>
+    </div>
+  </div>
+</section>
+
 <section class="faq fade-in" id="faq">
   <div class="container">
     <div class="section-head">
@@ -1069,6 +1195,26 @@
         if(submitBtn){ submitBtn.disabled = false; submitBtn.style.opacity = ''; }
       });
   });
+})();
+
+(function(){
+  var checks = document.querySelectorAll('.criteria-groups input[type="checkbox"]');
+  var fill = document.getElementById('criteriaFill');
+  var text = document.getElementById('criteriaScoreText');
+  if(!fill || !checks.length){ return; }
+
+  function update(){
+    var total = 0;
+    checks.forEach(function(c){
+      if(c.checked){ total += parseFloat(c.getAttribute('data-points')) || 0; }
+    });
+    var pct = Math.min(100, (total / 50) * 100);
+    fill.style.width = pct + '%';
+    text.textContent = Math.round(total) + ' / 50';
+  }
+
+  checks.forEach(function(c){ c.addEventListener('change', update); });
+  update();
 })();
 </script>
 
