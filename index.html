@@ -422,6 +422,15 @@
     font-size:14px; color:var(--ink-soft);
   }
   .criteria-score-label b{ color:var(--green-800); font-size:19px; }
+  .criteria-status{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    margin-top:16px; padding:10px 20px; border-radius:999px;
+    background:var(--bg-soft); border:1px solid var(--border);
+    font-size:13.5px; font-weight:700; color:var(--ink-soft); transition:all .3s ease;
+  }
+  .criteria-status .dot{ width:8px; height:8px; border-radius:50%; background:var(--ink-soft); opacity:.4; flex-shrink:0; }
+  .criteria-status.eligible{ background:#EFFAF1; border-color:var(--green-500); color:var(--green-800); }
+  .criteria-status.eligible .dot{ background:var(--green-500); opacity:1; }
   .criteria-groups{
     background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius);
     box-shadow:var(--shadow); padding:10px 24px; margin-bottom:20px;
@@ -1033,6 +1042,10 @@
         <span data-ar="نقاط الجاهزية" data-en="Readiness Score">نقاط الجاهزية</span>
         <b id="criteriaScoreText">0 / 50</b>
       </div>
+      <div class="criteria-status" id="criteriaStatus">
+        <span class="dot"></span>
+        <span id="criteriaStatusText"></span>
+      </div>
     </div>
 
     <div class="criteria-groups">
@@ -1312,7 +1325,17 @@
   var checks = document.querySelectorAll('.criteria-groups input[type="checkbox"]');
   var fill = document.getElementById('criteriaFill');
   var text = document.getElementById('criteriaScoreText');
+  var status = document.getElementById('criteriaStatus');
+  var statusText = document.getElementById('criteriaStatusText');
   if(!fill || !checks.length){ return; }
+
+  var ELIGIBLE_THRESHOLD = 70;
+  var MSG = {
+    eligible: { ar: 'منشأتكم مؤهلة لتكون مرشحة في الجائزة', en: 'Your facility qualifies to be nominated for the award' },
+    notYet: { ar: 'أكملوا المزيد من المعايير لتصبح منشأتكم مؤهلة للترشح (70% كحد أدنى)', en: 'Complete more criteria to qualify for nomination (70% minimum)' }
+  };
+
+  function currentLang(){ return document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'ar'; }
 
   function update(){
     var total = 0;
@@ -1322,9 +1345,16 @@
     var pct = Math.min(100, (total / 50) * 100);
     fill.style.width = pct + '%';
     text.textContent = Math.round(total) + ' / 50';
+
+    var eligible = pct >= ELIGIBLE_THRESHOLD;
+    status.classList.toggle('eligible', eligible);
+    var lang = currentLang();
+    statusText.textContent = eligible ? MSG.eligible[lang] : MSG.notYet[lang];
   }
 
   checks.forEach(function(c){ c.addEventListener('change', update); });
+  document.getElementById('btn-ar').addEventListener('click', update);
+  document.getElementById('btn-en').addEventListener('click', update);
   update();
 })();
 </script>
