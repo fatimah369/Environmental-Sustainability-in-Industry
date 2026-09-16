@@ -356,6 +356,27 @@
   }
   .winners-col .winner-item:last-child{ border-bottom:none; }
   .winner-item .diamond{ width:9px; height:9px; background:var(--green-500); transform:rotate(45deg); flex-shrink:0; }
+  .winners-ticker{
+    overflow:hidden; position:relative; width:100%;
+    -webkit-mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image:linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+  .winners-ticker-track{
+    display:flex; align-items:center; gap:14px; width:max-content;
+    animation:winners-scroll linear infinite;
+  }
+  .winners-ticker:hover .winners-ticker-track{ animation-play-state:paused; }
+  .winner-pill{
+    display:flex; align-items:center; gap:10px; white-space:nowrap;
+    background:#fff; border:1px solid var(--border); border-radius:999px;
+    padding:12px 22px; font-size:13.5px; font-weight:700; color:var(--ink);
+    box-shadow:0 2px 10px rgba(6,61,36,0.07);
+  }
+  .winner-pill .diamond{ width:8px; height:8px; background:var(--green-500); transform:rotate(45deg); flex-shrink:0; }
+  @keyframes winners-scroll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
 
   /* ===== Criteria self-assessment ===== */
   .criteria{ background:#fff; }
@@ -862,14 +883,20 @@
       <h3 class="winners-edition" data-ar="النسخة الأولى" data-en="1st Edition">النسخة الأولى</h3>
       <span class="winners-date" data-ar="في 26/7/2021م" data-en="July 26, 2021">في 26/7/2021م</span>
       <p class="winners-intro" data-ar="كرّم صاحب السمو الملكي الأمير سعود بن نايف أمير المنطقة الشرقية المصانع الفائزة في مكتب سمو أمير المنطقة الشرقية بديوان إمارة المنطقة الشرقية." data-en="His Royal Highness Prince Saud bin Nayef, Governor of the Eastern Province, honored the winning factories at the Office of the Governor of the Eastern Province, Eastern Province Emirate Diwan.">كرّم صاحب السمو الملكي الأمير سعود بن نايف أمير المنطقة الشرقية المصانع الفائزة في مكتب سمو أمير المنطقة الشرقية بديوان إمارة المنطقة الشرقية.</p>
-      <div class="winners-grid single">
-        <div class="winners-col">
-          <div class="winner-item"><span class="diamond"></span><span data-ar="1- الشركة السعودية للمأكولات الخفيفة" data-en="1. Saudi Snack Foods Company">1- الشركة السعودية للمأكولات الخفيفة</span></div>
-          <div class="winner-item"><span class="diamond"></span><span data-ar="2- شركة NOV العربية" data-en="2. NOV Arabia Company">2- شركة NOV العربية</span></div>
-          <div class="winner-item"><span class="diamond"></span><span data-ar="3- الشركة العربية لصناعة الورق" data-en="3. Arabian Paper Manufacturing Company">3- الشركة العربية لصناعة الورق</span></div>
-          <div class="winner-item"><span class="diamond"></span><span data-ar="4- شركة المخاليط العلفية" data-en="4. Feed Mixtures Company">4- شركة المخاليط العلفية</span></div>
-          <div class="winner-item"><span class="diamond"></span><span data-ar="5- مصنع مران للصناعة" data-en="5. Maran Factory for Industry">5- مصنع مران للصناعة</span></div>
-          <div class="winner-item"><span class="diamond"></span><span data-ar="6- منتجات المعادن المشكلة" data-en="6. Formed Metal Products">6- منتجات المعادن المشكلة</span></div>
+      <div class="winners-ticker">
+        <div class="winners-ticker-track" style="animation-duration:15s;">
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="1- الشركة السعودية للمأكولات الخفيفة" data-en="1. Saudi Snack Foods Company">1- الشركة السعودية للمأكولات الخفيفة</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="2- شركة NOV العربية" data-en="2. NOV Arabia Company">2- شركة NOV العربية</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="3- الشركة العربية لصناعة الورق" data-en="3. Arabian Paper Manufacturing Company">3- الشركة العربية لصناعة الورق</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="4- شركة المخاليط العلفية" data-en="4. Feed Mixtures Company">4- شركة المخاليط العلفية</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="5- مصنع مران للصناعة" data-en="5. Maran Factory for Industry">5- مصنع مران للصناعة</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="6- منتجات المعادن المشكلة" data-en="6. Formed Metal Products">6- منتجات المعادن المشكلة</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="1- الشركة السعودية للمأكولات الخفيفة" data-en="1. Saudi Snack Foods Company">1- الشركة السعودية للمأكولات الخفيفة</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="2- شركة NOV العربية" data-en="2. NOV Arabia Company">2- شركة NOV العربية</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="3- الشركة العربية لصناعة الورق" data-en="3. Arabian Paper Manufacturing Company">3- الشركة العربية لصناعة الورق</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="4- شركة المخاليط العلفية" data-en="4. Feed Mixtures Company">4- شركة المخاليط العلفية</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="5- مصنع مران للصناعة" data-en="5. Maran Factory for Industry">5- مصنع مران للصناعة</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="6- منتجات المعادن المشكلة" data-en="6. Formed Metal Products">6- منتجات المعادن المشكلة</span></div>
         </div>
       </div>
     </div>
@@ -877,26 +904,40 @@
       <h3 class="winners-edition" data-ar="النسخة الثانية" data-en="2nd Edition">النسخة الثانية</h3>
       <span class="winners-date" data-ar="في 23/2/2024م" data-en="February 23, 2024">في 23/2/2024م</span>
       <p class="winners-intro" data-ar="كرّم صاحب السمو الملكي الأمير سعود بن نايف أمير المنطقة الشرقية المصانع الفائزة في مكتب سمو أمير المنطقة الشرقية بديوان إمارة المنطقة الشرقية." data-en="His Royal Highness Prince Saud bin Nayef, Governor of the Eastern Province, honored the winning factories at the Office of the Governor of the Eastern Province, Eastern Province Emirate Diwan.">كرّم صاحب السمو الملكي الأمير سعود بن نايف أمير المنطقة الشرقية المصانع الفائزة في مكتب سمو أمير المنطقة الشرقية بديوان إمارة المنطقة الشرقية.</p>
-      <div class="winners-grid">
-        <div class="winners-col">
-          <div class="winner-item"><span class="diamond"></span><span data-ar="1- شركة أنابيب الشرق المتكاملة لصناعة مساهمة مدرجة" data-en="1. Eastern Pipes Integrated Company (Listed Joint Stock)">1- شركة أنابيب الشرق المتكاملة لصناعة مساهمة مدرجة</span></div>
-          <div class="winner-item"><span class="diamond"></span><span data-ar="2- شركة إن أو في العربية السعودية المحدودة" data-en="2. NOV Saudi Arabia Limited">2- شركة إن أو في العربية السعودية المحدودة</span></div>
-          <div class="winner-item"><span class="diamond"></span><span data-ar="3- مصنع بوليمرات النفط والغاز" data-en="3. Oil & Gas Polymers Factory">3- مصنع بوليمرات النفط والغاز</span></div>
-          <div class="winner-item"><span class="diamond"></span><span data-ar="4- شركة كوفك إنجيزر سوليوشنز الشرق الأوسط للصناعة" data-en="4. Kovac Engineered Solutions Middle East for Industry">4- شركة كوفك إنجيزر سوليوشنز الشرق الأوسط للصناعة</span></div>
-          <div class="winner-item"><span class="diamond"></span><span data-ar="5- شركة فالوريك العربية السعودية" data-en="5. Vallourec Saudi Arabia">5- شركة فالوريك العربية السعودية</span></div>
-          <div class="winner-item"><span class="diamond"></span><span data-ar="6- شركة الموجان للمرطبات" data-en="6. Al-Mojan Beverages Company">6- شركة الموجان للمرطبات</span></div>
-          <div class="winner-item"><span class="diamond"></span><span data-ar="7- الشركة السعودية لصناعات أطباق الفوم" data-en="7. Saudi Foam Plates Industries Company">7- الشركة السعودية لصناعات أطباق الفوم</span></div>
-          <div class="winner-item"><span class="diamond"></span><span data-ar="8- شركة إن أو في فاير جلاس سيستمز المحدودة" data-en="8. NOV Fiber Glass Systems Limited">8- شركة إن أو في فاير جلاس سيستمز المحدودة</span></div>
-        </div>
-        <div class="winners-col">
-          <div class="winner-item"><span class="diamond"></span><span data-ar="9- مصنع شركة الخريف للبترول للمضخات الكهربائية الغاطسة" data-en="9. Al-Khorayef Petroleum Factory for Electric Submersible Pumps">9- مصنع شركة الخريف للبترول للمضخات الكهربائية الغاطسة</span></div>
-          <div class="winner-item"><span class="diamond"></span><span data-ar="10- شركة بيكر هيوز العربية السعودية للتشغيل والصيانة" data-en="10. Baker Hughes Saudi Arabia for Operations & Maintenance">10- شركة بيكر هيوز العربية السعودية للتشغيل والصيانة</span></div>
-          <div class="winner-item"><span class="diamond"></span><span data-ar="11- شركة تاكر الوطنية مساهمة مقفلة" data-en="11. National Tacker Company (Closed Joint Stock)">11- شركة تاكر الوطنية مساهمة مقفلة</span></div>
-          <div class="winner-item"><span class="diamond"></span><span data-ar="12- الشركة السعودية لتحويل الورق" data-en="12. Saudi Paper Converting Company">12- الشركة السعودية لتحويل الورق</span></div>
-          <div class="winner-item"><span class="diamond"></span><span data-ar="13- شركة بيكرهيوز أويلتولز السعودية المحدودة" data-en="13. Baker Hughes Oil Tools Saudi Limited">13- شركة بيكرهيوز أويلتولز السعودية المحدودة</span></div>
-          <div class="winner-item"><span class="diamond"></span><span data-ar="14- شركة الزامل للمكيفات المركزية (شركة شخص واحد)" data-en="14. Zamil Central Air Conditioners Company (Single Person Company)">14- شركة الزامل للمكيفات المركزية (شركة شخص واحد)</span></div>
-          <div class="winner-item"><span class="diamond"></span><span data-ar="15- الشركة السعودية الألمانية للمنتجات غير المعزولة" data-en="15. Saudi German Company for Non-Insulated Products">15- الشركة السعودية الألمانية للمنتجات غير المعزولة</span></div>
-          <div class="winner-item"><span class="diamond"></span><span data-ar="16- مصنع سيليكات الصوديوم فرع شركة عدوان للصناعات الكيماوية المحدود" data-en="16. Sodium Silicate Factory, a Branch of Adwan Chemical Industries Ltd.">16- مصنع سيليكات الصوديوم فرع شركة عدوان للصناعات الكيماوية المحدود</span></div>
+      <div class="winners-ticker">
+        <div class="winners-ticker-track" style="animation-duration:40.0s;">
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="1- شركة أنابيب الشرق المتكاملة لصناعة مساهمة مدرجة" data-en="1. Eastern Pipes Integrated Company (Listed Joint Stock)">1- شركة أنابيب الشرق المتكاملة لصناعة مساهمة مدرجة</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="2- شركة إن أو في العربية السعودية المحدودة" data-en="2. NOV Saudi Arabia Limited">2- شركة إن أو في العربية السعودية المحدودة</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="3- مصنع بوليمرات النفط والغاز" data-en="3. Oil & Gas Polymers Factory">3- مصنع بوليمرات النفط والغاز</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="4- شركة كوفك إنجيزر سوليوشنز الشرق الأوسط للصناعة" data-en="4. Kovac Engineered Solutions Middle East for Industry">4- شركة كوفك إنجيزر سوليوشنز الشرق الأوسط للصناعة</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="5- شركة فالوريك العربية السعودية" data-en="5. Vallourec Saudi Arabia">5- شركة فالوريك العربية السعودية</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="6- شركة الموجان للمرطبات" data-en="6. Al-Mojan Beverages Company">6- شركة الموجان للمرطبات</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="7- الشركة السعودية لصناعات أطباق الفوم" data-en="7. Saudi Foam Plates Industries Company">7- الشركة السعودية لصناعات أطباق الفوم</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="8- شركة إن أو في فاير جلاس سيستمز المحدودة" data-en="8. NOV Fiber Glass Systems Limited">8- شركة إن أو في فاير جلاس سيستمز المحدودة</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="9- مصنع شركة الخريف للبترول للمضخات الكهربائية الغاطسة" data-en="9. Al-Khorayef Petroleum Factory for Electric Submersible Pumps">9- مصنع شركة الخريف للبترول للمضخات الكهربائية الغاطسة</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="10- شركة بيكر هيوز العربية السعودية للتشغيل والصيانة" data-en="10. Baker Hughes Saudi Arabia for Operations & Maintenance">10- شركة بيكر هيوز العربية السعودية للتشغيل والصيانة</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="11- شركة تاكر الوطنية مساهمة مقفلة" data-en="11. National Tacker Company (Closed Joint Stock)">11- شركة تاكر الوطنية مساهمة مقفلة</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="12- الشركة السعودية لتحويل الورق" data-en="12. Saudi Paper Converting Company">12- الشركة السعودية لتحويل الورق</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="13- شركة بيكرهيوز أويلتولز السعودية المحدودة" data-en="13. Baker Hughes Oil Tools Saudi Limited">13- شركة بيكرهيوز أويلتولز السعودية المحدودة</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="14- شركة الزامل للمكيفات المركزية (شركة شخص واحد)" data-en="14. Zamil Central Air Conditioners Company (Single Person Company)">14- شركة الزامل للمكيفات المركزية (شركة شخص واحد)</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="15- الشركة السعودية الألمانية للمنتجات غير المعزولة" data-en="15. Saudi German Company for Non-Insulated Products">15- الشركة السعودية الألمانية للمنتجات غير المعزولة</span></div>
+          <div class="winner-pill"><span class="diamond"></span><span data-ar="16- مصنع سيليكات الصوديوم فرع شركة عدوان للصناعات الكيماوية المحدود" data-en="16. Sodium Silicate Factory, a Branch of Adwan Chemical Industries Ltd.">16- مصنع سيليكات الصوديوم فرع شركة عدوان للصناعات الكيماوية المحدود</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="1- شركة أنابيب الشرق المتكاملة لصناعة مساهمة مدرجة" data-en="1. Eastern Pipes Integrated Company (Listed Joint Stock)">1- شركة أنابيب الشرق المتكاملة لصناعة مساهمة مدرجة</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="2- شركة إن أو في العربية السعودية المحدودة" data-en="2. NOV Saudi Arabia Limited">2- شركة إن أو في العربية السعودية المحدودة</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="3- مصنع بوليمرات النفط والغاز" data-en="3. Oil & Gas Polymers Factory">3- مصنع بوليمرات النفط والغاز</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="4- شركة كوفك إنجيزر سوليوشنز الشرق الأوسط للصناعة" data-en="4. Kovac Engineered Solutions Middle East for Industry">4- شركة كوفك إنجيزر سوليوشنز الشرق الأوسط للصناعة</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="5- شركة فالوريك العربية السعودية" data-en="5. Vallourec Saudi Arabia">5- شركة فالوريك العربية السعودية</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="6- شركة الموجان للمرطبات" data-en="6. Al-Mojan Beverages Company">6- شركة الموجان للمرطبات</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="7- الشركة السعودية لصناعات أطباق الفوم" data-en="7. Saudi Foam Plates Industries Company">7- الشركة السعودية لصناعات أطباق الفوم</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="8- شركة إن أو في فاير جلاس سيستمز المحدودة" data-en="8. NOV Fiber Glass Systems Limited">8- شركة إن أو في فاير جلاس سيستمز المحدودة</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="9- مصنع شركة الخريف للبترول للمضخات الكهربائية الغاطسة" data-en="9. Al-Khorayef Petroleum Factory for Electric Submersible Pumps">9- مصنع شركة الخريف للبترول للمضخات الكهربائية الغاطسة</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="10- شركة بيكر هيوز العربية السعودية للتشغيل والصيانة" data-en="10. Baker Hughes Saudi Arabia for Operations & Maintenance">10- شركة بيكر هيوز العربية السعودية للتشغيل والصيانة</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="11- شركة تاكر الوطنية مساهمة مقفلة" data-en="11. National Tacker Company (Closed Joint Stock)">11- شركة تاكر الوطنية مساهمة مقفلة</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="12- الشركة السعودية لتحويل الورق" data-en="12. Saudi Paper Converting Company">12- الشركة السعودية لتحويل الورق</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="13- شركة بيكرهيوز أويلتولز السعودية المحدودة" data-en="13. Baker Hughes Oil Tools Saudi Limited">13- شركة بيكرهيوز أويلتولز السعودية المحدودة</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="14- شركة الزامل للمكيفات المركزية (شركة شخص واحد)" data-en="14. Zamil Central Air Conditioners Company (Single Person Company)">14- شركة الزامل للمكيفات المركزية (شركة شخص واحد)</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="15- الشركة السعودية الألمانية للمنتجات غير المعزولة" data-en="15. Saudi German Company for Non-Insulated Products">15- الشركة السعودية الألمانية للمنتجات غير المعزولة</span></div>
+          <div class="winner-pill" aria-hidden="true"><span class="diamond"></span><span data-ar="16- مصنع سيليكات الصوديوم فرع شركة عدوان للصناعات الكيماوية المحدود" data-en="16. Sodium Silicate Factory, a Branch of Adwan Chemical Industries Ltd.">16- مصنع سيليكات الصوديوم فرع شركة عدوان للصناعات الكيماوية المحدود</span></div>
         </div>
       </div>
     </div>
