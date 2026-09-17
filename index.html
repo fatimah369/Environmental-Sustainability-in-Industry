@@ -873,7 +873,7 @@
       <div class="criteria-score-track"><div class="criteria-score-fill" id="criteriaFill"></div></div>
       <div class="criteria-score-label">
         <span data-ar="نقاط الجاهزية" data-en="Readiness Score">نقاط الجاهزية</span>
-        <b id="criteriaScoreText">0 / 50</b>
+        <b id="criteriaScoreText">0 / 50 (0%)</b>
       </div>
       <div class="criteria-status" id="criteriaStatus">
         <span class="dot"></span>
@@ -1185,7 +1185,7 @@
     });
     var pct = Math.min(100, (total / 50) * 100);
     fill.style.width = pct + '%';
-    text.textContent = Math.round(total) + ' / 50';
+    text.textContent = Math.round(total) + ' / 50 (' + Math.round(pct) + '%)';
 
     var eligible = pct >= ELIGIBLE_THRESHOLD;
     status.classList.toggle('eligible', eligible);
