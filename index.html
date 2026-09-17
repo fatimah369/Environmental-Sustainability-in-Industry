@@ -152,17 +152,16 @@
     position:relative; z-index:2; text-align:center; color:#fff;
     max-width:900px; padding:110px 24px 90px;
   }
-  .hero-eyebrow{
-    display:inline-flex; align-items:center; gap:10px;
-    background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.28);
-    padding:16px 36px; border-radius:999px; font-size:clamp(19px, 2.6vw, 28px); font-weight:800;
-    letter-spacing:.02em; margin-bottom:28px; color:#fff;
-    text-shadow:0 2px 20px rgba(0,0,0,0.25);
-  }
   .hero-content h1{
     font-size:clamp(28px, 4.4vw, 46px);
     font-weight:900; line-height:1.35; margin:0 0 22px;
     text-shadow:0 2px 20px rgba(0,0,0,0.25);
+  }
+  .hero-award-title{
+    font-size:clamp(26px, 4.2vw, 44px); font-weight:900; margin:0 0 26px; line-height:1.3;
+    background:linear-gradient(180deg, #F5DA96 0%, #D9A94A 45%, #9C6A22 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    letter-spacing:.01em; text-shadow:0 2px 24px rgba(0,0,0,0.2);
   }
   .hero-badges{
     display:flex; align-items:center; justify-content:center; gap:14px;
@@ -671,12 +670,8 @@
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <span class="hero-eyebrow" data-ar="برنامج المصنع المثالي" data-en="Ideal Factory Program">برنامج المصنع المثالي</span>
+    <div class="hero-award-title" data-ar="جائزة المصنع المثالي" data-en="The Ideal Factory Award">جائزة المصنع المثالي</div>
     <div class="hero-badges">
-      <div class="hero-badge">
-        <strong data-ar="الجائزة" data-en="Award">الجائزة</strong>
-        <span data-ar="جائزة المصنع المثالي" data-en="The Ideal Factory Award">جائزة المصنع المثالي</span>
-      </div>
       <div class="hero-badge">
         <strong data-ar="النسخة" data-en="Edition">النسخة</strong>
         <span data-ar="الثالثة" data-en="3rd Edition">الثالثة</span>
