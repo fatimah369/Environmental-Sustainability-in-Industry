@@ -524,7 +524,7 @@
     animation:partners-scroll linear infinite;
   }
   .partners-ticker:hover .partners-ticker-track{ animation-play-state:paused; }
-  .partners-ticker-track img{ height:64px; width:auto; object-fit:contain; flex-shrink:0; }
+  .partners-ticker-track img{ height:88px; width:auto; object-fit:contain; flex-shrink:0; }
   @keyframes partners-scroll{
     from{ transform:translateX(0); }
     to{ transform:translateX(-50%); }
@@ -533,10 +533,10 @@
     display:flex; align-items:center; justify-content:center;
     flex-wrap:wrap; gap:48px 64px;
   }
-  .partners-static-row img{ height:64px; width:auto; object-fit:contain; }
+  .partners-static-row img{ height:88px; width:auto; object-fit:contain; }
   @media (max-width:760px){
     .partners-static-row{ gap:28px 40px; }
-    .partners-static-row img{ height:44px; }
+    .partners-static-row img{ height:60px; }
   }
 
   /* ===== Footer ===== */
@@ -575,7 +575,7 @@
     .brand-text .name-secondary{ font-size:10.5px; }
     section{ padding:64px 0; }
     .partners-ticker-track{ gap:40px; }
-    .partners-ticker-track img{ height:44px; }
+    .partners-ticker-track img{ height:60px; }
     .vm-grid{ grid-template-columns:1fr; gap:16px; margin-bottom:32px; }
     .goals-grid{ grid-template-columns:1fr; }
     .dimensions-grid{ grid-template-columns:1fr; }
@@ -890,7 +890,7 @@
       <div class="criteria-score-track"><div class="criteria-score-fill" id="criteriaFill"></div></div>
       <div class="criteria-score-label">
         <span data-ar="نقاط الجاهزية" data-en="Readiness Score">نقاط الجاهزية</span>
-        <b id="criteriaScoreText">0 / 50 (0%)</b>
+        <b id="criteriaScoreText">0 / 100 (0%)</b>
       </div>
       <div class="criteria-status" id="criteriaStatus">
         <span class="dot"></span>
@@ -898,52 +898,46 @@
       </div>
     </div>
 
+    <div class="pillars-head">
+      <h3 data-ar="محاور التقييم الرسمية" data-en="Official Evaluation Pillars">محاور التقييم الرسمية</h3>
+      <p data-ar="تُقيَّم المصانع المشاركة وفق سبعة محاور تعكس كفاءة الأداء البيئي والنتائج المحققة واستدامة التحسين." data-en="Participating factories are assessed across seven pillars reflecting environmental performance, results achieved, and the sustainability of improvement.">تُقيَّم المصانع المشاركة وفق سبعة محاور تعكس كفاءة الأداء البيئي والنتائج المحققة واستدامة التحسين.</p>
+    </div>
     <div class="criteria-groups">
-      <div class="criteria-list">
+      <div class="criteria-list pillars-list">
         <label class="criteria-check">
-          <input type="checkbox" data-points="25">
+          <input type="checkbox" data-points="20">
           <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
-          <span class="label-text" data-ar="خفض استهلاك الطاقة والانبعاثات الكربونية" data-en="Reducing energy consumption and carbon emissions">خفض استهلاك الطاقة والانبعاثات الكربونية</span>
+          <span class="label-text"><strong class="pillar-weight" data-ar="الإدارة والالتزام البيئي (20%):" data-en="Environmental Management &amp; Compliance (20%):">الإدارة والالتزام البيئي (20%):</strong> <span data-ar="وجود سياسة بيئية ومسؤوليات واضحة، ومتابعة المتطلبات النظامية، وخطط إدارة المخاطر والطوارئ البيئية، وإغلاق الملاحظات والإجراءات التصحيحية." data-en="A clear environmental policy and responsibilities, tracking regulatory requirements, risk and emergency management plans, and closing out findings and corrective actions.">وجود سياسة بيئية ومسؤوليات واضحة، ومتابعة المتطلبات النظامية، وخطط إدارة المخاطر والطوارئ البيئية، وإغلاق الملاحظات والإجراءات التصحيحية.</span></span>
         </label>
         <label class="criteria-check">
-          <input type="checkbox" data-points="2.142857">
+          <input type="checkbox" data-points="20">
           <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
-          <span class="label-text" data-ar="النظام العام للبيئة (NCEC)" data-en="General Environmental Law (NCEC)">النظام العام للبيئة (NCEC)</span>
+          <span class="label-text"><strong class="pillar-weight" data-ar="كفاءة الطاقة وخفض الانبعاثات (20%):" data-en="Energy Efficiency &amp; Emission Reduction (20%):">كفاءة الطاقة وخفض الانبعاثات (20%):</strong> <span data-ar="قياس استهلاك الطاقة والانبعاثات، وتحسين الكفاءة لكل وحدة إنتاج، وتنفيذ مبادرات خفض قابلة للقياس، واستخدام الطاقة المتجددة والتقنيات النظيفة." data-en="Measuring energy consumption and emissions, improving efficiency per production unit, implementing measurable reduction initiatives, and using renewable energy and clean technologies.">قياس استهلاك الطاقة والانبعاثات، وتحسين الكفاءة لكل وحدة إنتاج، وتنفيذ مبادرات خفض قابلة للقياس، واستخدام الطاقة المتجددة والتقنيات النظيفة.</span></span>
         </label>
         <label class="criteria-check">
-          <input type="checkbox" data-points="2.142857">
+          <input type="checkbox" data-points="15">
           <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
-          <span class="label-text" data-ar="التصريح البيئي (EIA)" data-en="Environmental Permit (EIA)">التصريح البيئي (EIA)</span>
+          <span class="label-text"><strong class="pillar-weight" data-ar="إدارة النفايات والاقتصاد الدائري (15%):" data-en="Waste Management &amp; Circular Economy (15%):">إدارة النفايات والاقتصاد الدائري (15%):</strong> <span data-ar="تقليل النفايات من المصدر، والفرز وإعادة الاستخدام والتدوير، والتعامل الآمن مع النفايات الخطرة، وتوثيق نقل المخلفات ومعالجتها." data-en="Reducing waste at the source, sorting, reuse and recycling, safe handling of hazardous waste, and documenting the transfer and treatment of waste.">تقليل النفايات من المصدر، والفرز وإعادة الاستخدام والتدوير، والتعامل الآمن مع النفايات الخطرة، وتوثيق نقل المخلفات ومعالجتها.</span></span>
         </label>
         <label class="criteria-check">
-          <input type="checkbox" data-points="2.142857">
+          <input type="checkbox" data-points="15">
           <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
-          <span class="label-text" data-ar="مقاييس جودة الهواء والانبعاثات" data-en="Air Quality &amp; Emissions Standards">مقاييس جودة الهواء والانبعاثات</span>
+          <span class="label-text"><strong class="pillar-weight" data-ar="كفاءة المياه وحماية الموارد المائية (15%):" data-en="Water Efficiency &amp; Resource Protection (15%):">كفاءة المياه وحماية الموارد المائية (15%):</strong> <span data-ar="قياس استهلاك المياه وترشيده، وكشف التسربات، وإعادة الاستخدام، وكفاءة معالجة الصرف الصناعي ومراقبة جودته." data-en="Measuring and rationalizing water consumption, leak detection, reuse, and the efficiency and quality monitoring of industrial wastewater treatment.">قياس استهلاك المياه وترشيده، وكشف التسربات، وإعادة الاستخدام، وكفاءة معالجة الصرف الصناعي ومراقبة جودته.</span></span>
         </label>
         <label class="criteria-check">
-          <input type="checkbox" data-points="2.142857">
+          <input type="checkbox" data-points="15">
           <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
-          <span class="label-text" data-ar="مقاييس الصرف الصناعي والسائل" data-en="Industrial &amp; Liquid Discharge Standards">مقاييس الصرف الصناعي والسائل</span>
-        </label>
-        <label class="criteria-check">
-          <input type="checkbox" data-points="2.142857">
-          <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
-          <span class="label-text" data-ar="إدارة المواد والنفايات الخطرة" data-en="Hazardous Materials &amp; Waste Management">إدارة المواد والنفايات الخطرة</span>
-        </label>
-        <label class="criteria-check">
-          <input type="checkbox" data-points="2.142857">
-          <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
-          <span class="label-text" data-ar="شهادات ISO 14001 و SASO" data-en="ISO 14001 &amp; SASO Certifications">شهادات ISO 14001 و SASO</span>
-        </label>
-        <label class="criteria-check">
-          <input type="checkbox" data-points="2.142857">
-          <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
-          <span class="label-text" data-ar="اشتراطات المدن الصناعية" data-en="Industrial Cities Requirements">اشتراطات المدن الصناعية</span>
+          <span class="label-text"><strong class="pillar-weight" data-ar="منع التلوث وحماية البيئة المحيطة (15%):" data-en="Pollution Prevention &amp; Surrounding Environment (15%):">منع التلوث وحماية البيئة المحيطة (15%):</strong> <span data-ar="التحكم في ملوثات الهواء والغبار والروائح والضوضاء، ومنع التسربات وتلوث التربة، والتخزين الآمن للمواد الكيميائية، ومتابعة القياسات البيئية." data-en="Controlling air, dust, odor, and noise pollutants, preventing spills and soil contamination, safe chemical storage, and ongoing environmental measurements.">التحكم في ملوثات الهواء والغبار والروائح والضوضاء، ومنع التسربات وتلوث التربة، والتخزين الآمن للمواد الكيميائية، ومتابعة القياسات البيئية.</span></span>
         </label>
         <label class="criteria-check">
           <input type="checkbox" data-points="10">
           <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
-          <span class="label-text" data-ar="شفافية التقارير البيئية وتوعية العاملين" data-en="Transparency of environmental reports and employee awareness">شفافية التقارير البيئية وتوعية العاملين</span>
+          <span class="label-text"><strong class="pillar-weight" data-ar="الابتكار والتحسين المستمر (10%):" data-en="Innovation &amp; Continuous Improvement (10%):">الابتكار والتحسين المستمر (10%):</strong> <span data-ar="تطبيق حلول تقنية وتشغيلية تحقق أثرًا بيئيًا موثقًا، واستخدام البيانات في المتابعة، وقياس نتائج التحسين واستمراريتها وقابليتها للتوسع." data-en="Applying technical and operational solutions with documented environmental impact, using data for monitoring, and measuring the durability and scalability of improvements.">تطبيق حلول تقنية وتشغيلية تحقق أثرًا بيئيًا موثقًا، واستخدام البيانات في المتابعة، وقياس نتائج التحسين واستمراريتها وقابليتها للتوسع.</span></span>
+        </label>
+        <label class="criteria-check">
+          <input type="checkbox" data-points="5">
+          <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
+          <span class="label-text"><strong class="pillar-weight" data-ar="التوعية والمشاركة المجتمعية (5%):" data-en="Awareness &amp; Community Participation (5%):">التوعية والمشاركة المجتمعية (5%):</strong> <span data-ar="تدريب العاملين وإشراكهم في التحسين البيئي، وتنفيذ مبادرات مجتمعية ذات نتائج قابلة للقياس، وتعزيز الوعي البيئي داخل المصنع وخارجه." data-en="Training and involving employees in environmental improvement, running community initiatives with measurable results, and raising environmental awareness inside and outside the factory.">تدريب العاملين وإشراكهم في التحسين البيئي، وتنفيذ مبادرات مجتمعية ذات نتائج قابلة للقياس، وتعزيز الوعي البيئي داخل المصنع وخارجه.</span></span>
         </label>
       </div>
     </div>
@@ -964,49 +958,6 @@
       </div>
     </div>
 
-    <div class="pillars-head">
-      <h3 data-ar="محاور التقييم الرسمية" data-en="Official Evaluation Pillars">محاور التقييم الرسمية</h3>
-      <p data-ar="تُقيَّم المصانع المشاركة وفق سبعة محاور تعكس كفاءة الأداء البيئي والنتائج المحققة واستدامة التحسين." data-en="Participating factories are assessed across seven pillars reflecting environmental performance, results achieved, and the sustainability of improvement.">تُقيَّم المصانع المشاركة وفق سبعة محاور تعكس كفاءة الأداء البيئي والنتائج المحققة واستدامة التحسين.</p>
-    </div>
-    <div class="criteria-groups">
-      <div class="criteria-list pillars-list">
-        <label class="criteria-check">
-          <input type="checkbox">
-          <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
-          <span class="label-text"><strong class="pillar-weight" data-ar="الإدارة والالتزام البيئي (20%):" data-en="Environmental Management &amp; Compliance (20%):">الإدارة والالتزام البيئي (20%):</strong> <span data-ar="وجود سياسة بيئية ومسؤوليات واضحة، ومتابعة المتطلبات النظامية، وخطط إدارة المخاطر والطوارئ البيئية، وإغلاق الملاحظات والإجراءات التصحيحية." data-en="A clear environmental policy and responsibilities, tracking regulatory requirements, risk and emergency management plans, and closing out findings and corrective actions.">وجود سياسة بيئية ومسؤوليات واضحة، ومتابعة المتطلبات النظامية، وخطط إدارة المخاطر والطوارئ البيئية، وإغلاق الملاحظات والإجراءات التصحيحية.</span></span>
-        </label>
-        <label class="criteria-check">
-          <input type="checkbox">
-          <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
-          <span class="label-text"><strong class="pillar-weight" data-ar="كفاءة الطاقة وخفض الانبعاثات (20%):" data-en="Energy Efficiency &amp; Emission Reduction (20%):">كفاءة الطاقة وخفض الانبعاثات (20%):</strong> <span data-ar="قياس استهلاك الطاقة والانبعاثات، وتحسين الكفاءة لكل وحدة إنتاج، وتنفيذ مبادرات خفض قابلة للقياس، واستخدام الطاقة المتجددة والتقنيات النظيفة." data-en="Measuring energy consumption and emissions, improving efficiency per production unit, implementing measurable reduction initiatives, and using renewable energy and clean technologies.">قياس استهلاك الطاقة والانبعاثات، وتحسين الكفاءة لكل وحدة إنتاج، وتنفيذ مبادرات خفض قابلة للقياس، واستخدام الطاقة المتجددة والتقنيات النظيفة.</span></span>
-        </label>
-        <label class="criteria-check">
-          <input type="checkbox">
-          <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
-          <span class="label-text"><strong class="pillar-weight" data-ar="إدارة النفايات والاقتصاد الدائري (15%):" data-en="Waste Management &amp; Circular Economy (15%):">إدارة النفايات والاقتصاد الدائري (15%):</strong> <span data-ar="تقليل النفايات من المصدر، والفرز وإعادة الاستخدام والتدوير، والتعامل الآمن مع النفايات الخطرة، وتوثيق نقل المخلفات ومعالجتها." data-en="Reducing waste at the source, sorting, reuse and recycling, safe handling of hazardous waste, and documenting the transfer and treatment of waste.">تقليل النفايات من المصدر، والفرز وإعادة الاستخدام والتدوير، والتعامل الآمن مع النفايات الخطرة، وتوثيق نقل المخلفات ومعالجتها.</span></span>
-        </label>
-        <label class="criteria-check">
-          <input type="checkbox">
-          <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
-          <span class="label-text"><strong class="pillar-weight" data-ar="كفاءة المياه وحماية الموارد المائية (15%):" data-en="Water Efficiency &amp; Resource Protection (15%):">كفاءة المياه وحماية الموارد المائية (15%):</strong> <span data-ar="قياس استهلاك المياه وترشيده، وكشف التسربات، وإعادة الاستخدام، وكفاءة معالجة الصرف الصناعي ومراقبة جودته." data-en="Measuring and rationalizing water consumption, leak detection, reuse, and the efficiency and quality monitoring of industrial wastewater treatment.">قياس استهلاك المياه وترشيده، وكشف التسربات، وإعادة الاستخدام، وكفاءة معالجة الصرف الصناعي ومراقبة جودته.</span></span>
-        </label>
-        <label class="criteria-check">
-          <input type="checkbox">
-          <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
-          <span class="label-text"><strong class="pillar-weight" data-ar="منع التلوث وحماية البيئة المحيطة (15%):" data-en="Pollution Prevention &amp; Surrounding Environment (15%):">منع التلوث وحماية البيئة المحيطة (15%):</strong> <span data-ar="التحكم في ملوثات الهواء والغبار والروائح والضوضاء، ومنع التسربات وتلوث التربة، والتخزين الآمن للمواد الكيميائية، ومتابعة القياسات البيئية." data-en="Controlling air, dust, odor, and noise pollutants, preventing spills and soil contamination, safe chemical storage, and ongoing environmental measurements.">التحكم في ملوثات الهواء والغبار والروائح والضوضاء، ومنع التسربات وتلوث التربة، والتخزين الآمن للمواد الكيميائية، ومتابعة القياسات البيئية.</span></span>
-        </label>
-        <label class="criteria-check">
-          <input type="checkbox">
-          <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
-          <span class="label-text"><strong class="pillar-weight" data-ar="الابتكار والتحسين المستمر (10%):" data-en="Innovation &amp; Continuous Improvement (10%):">الابتكار والتحسين المستمر (10%):</strong> <span data-ar="تطبيق حلول تقنية وتشغيلية تحقق أثرًا بيئيًا موثقًا، واستخدام البيانات في المتابعة، وقياس نتائج التحسين واستمراريتها وقابليتها للتوسع." data-en="Applying technical and operational solutions with documented environmental impact, using data for monitoring, and measuring the durability and scalability of improvements.">تطبيق حلول تقنية وتشغيلية تحقق أثرًا بيئيًا موثقًا، واستخدام البيانات في المتابعة، وقياس نتائج التحسين واستمراريتها وقابليتها للتوسع.</span></span>
-        </label>
-        <label class="criteria-check">
-          <input type="checkbox">
-          <span class="check-icon"><svg class="icon-yes" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span>
-          <span class="label-text"><strong class="pillar-weight" data-ar="التوعية والمشاركة المجتمعية (5%):" data-en="Awareness &amp; Community Participation (5%):">التوعية والمشاركة المجتمعية (5%):</strong> <span data-ar="تدريب العاملين وإشراكهم في التحسين البيئي، وتنفيذ مبادرات مجتمعية ذات نتائج قابلة للقياس، وتعزيز الوعي البيئي داخل المصنع وخارجه." data-en="Training and involving employees in environmental improvement, running community initiatives with measurable results, and raising environmental awareness inside and outside the factory.">تدريب العاملين وإشراكهم في التحسين البيئي، وتنفيذ مبادرات مجتمعية ذات نتائج قابلة للقياس، وتعزيز الوعي البيئي داخل المصنع وخارجه.</span></span>
-        </label>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1288,10 +1239,10 @@
   var statusText = document.getElementById('criteriaStatusText');
   if(!fill || !checks.length){ return; }
 
-  var ELIGIBLE_THRESHOLD = 70;
+  var ELIGIBLE_THRESHOLD = 60;
   var MSG = {
     eligible: { ar: 'منشأتكم مؤهلة لتكون مرشحة في الجائزة', en: 'Your facility qualifies to be nominated for the award' },
-    notYet: { ar: 'أكملوا المزيد من المعايير لتصبح منشأتكم مؤهلة للترشح (70% كحد أدنى)', en: 'Complete more criteria to qualify for nomination (70% minimum)' }
+    notYet: { ar: 'أكملوا المزيد من المعايير لتصبح منشأتكم مؤهلة للترشح (60% كحد أدنى)', en: 'Complete more criteria to qualify for nomination (60% minimum)' }
   };
 
   function currentLang(){ return document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'ar'; }
@@ -1301,9 +1252,9 @@
     checks.forEach(function(c){
       if(c.checked){ total += parseFloat(c.getAttribute('data-points')) || 0; }
     });
-    var pct = Math.min(100, (total / 50) * 100);
+    var pct = Math.min(100, (total / 100) * 100);
     fill.style.width = pct + '%';
-    text.textContent = Math.round(total) + ' / 50 (' + Math.round(pct) + '%)';
+    text.textContent = Math.round(total) + ' / 100 (' + Math.round(pct) + '%)';
 
     var eligible = pct >= ELIGIBLE_THRESHOLD;
     status.classList.toggle('eligible', eligible);
