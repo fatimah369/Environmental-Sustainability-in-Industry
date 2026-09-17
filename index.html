@@ -103,8 +103,34 @@
     white-space:nowrap; transition:color .2s ease;
   }
   .nav-links > a:hover{ color:var(--green-700); }
-  .nav-links > a.nav-winner{ color:var(--green-600); }
-  .nav-links > a.nav-winner:hover{ color:var(--green-800); }
+  .nav-item{ position:relative; display:flex; align-items:center; gap:2px; }
+  .nav-item > a{
+    font-size:13.5px; font-weight:700; color:var(--ink-soft); text-decoration:none;
+    white-space:nowrap; transition:color .2s ease;
+  }
+  .nav-item > a:hover{ color:var(--green-700); }
+  .nav-caret{
+    border:none; background:transparent; padding:2px; margin:0; cursor:pointer;
+    font-size:10px; color:var(--ink-soft); line-height:1; font-family:inherit;
+    transition:transform .2s ease, color .2s ease;
+  }
+  .nav-item:hover .nav-caret, .nav-item.open .nav-caret{ color:var(--green-700); }
+  .nav-item.open .nav-caret{ transform:rotate(180deg); }
+  .nav-dropdown{
+    position:absolute; top:calc(100% + 14px); inset-inline-start:0;
+    background:#fff; border:1px solid var(--border); border-radius:10px; box-shadow:var(--shadow);
+    padding:6px; min-width:150px; opacity:0; visibility:hidden; transform:translateY(-6px);
+    transition:opacity .2s ease, transform .2s ease, visibility .2s ease; z-index:200;
+  }
+  .nav-item:hover .nav-dropdown, .nav-item.open .nav-dropdown{
+    opacity:1; visibility:visible; transform:translateY(0);
+  }
+  .nav-dropdown a{
+    display:block; padding:8px 12px; border-radius:6px; font-size:13px;
+    font-weight:700; color:var(--ink-soft); text-decoration:none; white-space:nowrap;
+    transition:background .2s ease, color .2s ease;
+  }
+  .nav-dropdown a:hover{ background:var(--bg-soft); color:var(--green-700); }
   .nav-cta{
     flex-shrink:0; background:var(--green-500); color:#fff; padding:9px 24px;
     border-radius:999px; font-size:13.5px; font-weight:800; text-decoration:none;
@@ -112,7 +138,7 @@
   }
   @media (max-width:760px){
     .nav-links{ gap:16px; }
-    .nav-links > a{ font-size:12.5px; }
+    .nav-links > a, .nav-item > a{ font-size:12.5px; }
   }
   @media (max-width:560px){
     .header-nav{ justify-content:flex-start; }
@@ -652,10 +678,20 @@
   </div>
   <nav class="header-nav">
     <div class="nav-links">
-      <a href="milestones/edition-1.html" data-ar="النسخة الأولى" data-en="1st Edition">النسخة الأولى</a>
-      <a class="nav-winner" href="#winners-edition-1" data-ar="فائزون النسخة الأولى" data-en="1st Edition Winners">فائزون النسخة الأولى</a>
-      <a href="milestones/edition-2.html" data-ar="النسخة الثانية" data-en="2nd Edition">النسخة الثانية</a>
-      <a class="nav-winner" href="#winners-edition-2" data-ar="فائزون النسخة الثانية" data-en="2nd Edition Winners">فائزون النسخة الثانية</a>
+      <div class="nav-item">
+        <a href="milestones/edition-1.html" data-ar="النسخة الأولى" data-en="1st Edition">النسخة الأولى</a>
+        <button type="button" class="nav-caret" aria-label="Toggle submenu">&#9662;</button>
+        <div class="nav-dropdown">
+          <a href="#winners-edition-1" data-ar="الفائزون" data-en="Winners">الفائزون</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="milestones/edition-2.html" data-ar="النسخة الثانية" data-en="2nd Edition">النسخة الثانية</a>
+        <button type="button" class="nav-caret" aria-label="Toggle submenu">&#9662;</button>
+        <div class="nav-dropdown">
+          <a href="#winners-edition-2" data-ar="الفائزون" data-en="Winners">الفائزون</a>
+        </div>
+      </div>
       <a href="workshops/index.html" data-ar="ورش العمل" data-en="Workshops">ورش العمل</a>
     </div>
     <a class="nav-cta" href="#register" data-ar="سجّل الآن" data-en="Register Now">سجّل الآن</a>
@@ -1308,6 +1344,24 @@
   window.addEventListener('scroll', updateProgress, { passive: true });
   window.addEventListener('resize', updateProgress);
   updateProgress();
+})();
+
+(function(){
+  var items = document.querySelectorAll('.nav-item');
+  items.forEach(function(item){
+    var caret = item.querySelector('.nav-caret');
+    if(!caret){ return; }
+    caret.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var isOpen = item.classList.contains('open');
+      items.forEach(function(i){ i.classList.remove('open'); });
+      if(!isOpen){ item.classList.add('open'); }
+    });
+  });
+  document.addEventListener('click', function(){
+    items.forEach(function(i){ i.classList.remove('open'); });
+  });
 })();
 
 </script>
