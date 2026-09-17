@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الحياد الكربوني | البرنامج الاستراتيجي لحماية البيئة بالمنطقة الشرقية</title>
+<title>ورش عمل البرنامج | البرنامج الاستراتيجي لحماية البيئة بالمنطقة الشرقية</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Barlow:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
   html[lang="en"] body{ font-family:'Barlow','Segoe UI',sans-serif; }
   img{ max-width:100%; display:block; }
   a{ color:inherit; }
-  .container{ width:100%; max-width:860px; margin:0 auto; padding:0 24px; }
+  .container{ width:100%; max-width:1000px; margin:0 auto; padding:0 24px; }
   .site-header{ position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); }
   .header-inner{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 24px; max-width:1180px; margin:0 auto; direction:ltr; }
   .brand{ display:flex; align-items:center; gap:14px; min-width:0; }
@@ -49,16 +49,33 @@
   .workshop-hero h1{ font-size:clamp(26px,4vw,38px); font-weight:900; color:var(--green-900); margin:0 0 12px; line-height:1.3; }
 
   .workshop-body{ padding:24px 0 90px; }
-  .workshop-body p{ font-size:16.5px; line-height:2; color:var(--ink-soft); margin:0 0 22px; }
-  .workshop-card{
-    background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius);
-    box-shadow:var(--shadow); padding:32px; margin-top:16px;
+
+  /* ===== Workshops columns (from main site) ===== */
+  .workshops-columns{ display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+  .workshops-col h3{
+    display:flex; align-items:center; gap:10px; font-size:16px; font-weight:800;
+    color:var(--green-900); margin:0 0 18px;
   }
-  .workshop-cta{
-    display:inline-block; background:var(--green-500); color:#fff; padding:14px 32px;
-    border-radius:12px; font-size:15px; font-weight:700; text-decoration:none; margin-top:8px;
-    box-shadow:0 12px 30px rgba(12,173,75,0.3);
+  .workshops-col h3 .dot{ width:10px; height:10px; border-radius:50%; flex-shrink:0; background:var(--green-500); }
+  .workshops-col.upcoming h3 .dot{ background:var(--gold); }
+  .workshop-item{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    background:var(--bg-soft); border:1px solid var(--border); border-radius:12px;
+    padding:16px 20px; margin-bottom:12px; text-decoration:none;
   }
+  a.workshop-item{ transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
+  a.workshop-item:hover{ border-color:var(--green-500); box-shadow:var(--shadow); transform:translateY(-2px); }
+  .workshop-item .title-wrap{ display:flex; align-items:center; gap:10px; }
+  .workshop-item .title{ font-size:14.5px; font-weight:700; color:var(--ink); }
+  .workshop-item .arrow{ color:var(--green-600); font-size:16px; flex-shrink:0; }
+  html[dir="rtl"] .workshop-item .arrow{ transform:scaleX(-1); }
+  .workshop-item .date{
+    flex-shrink:0; font-size:12.5px; font-weight:800; color:var(--green-700);
+    background:#fff; border:1px solid var(--border); padding:6px 14px; border-radius:999px; white-space:nowrap;
+  }
+  .workshops-col.upcoming .workshop-item{ background:rgba(184,120,56,0.06); }
+  .workshops-col.upcoming .workshop-item .date{ color:var(--gold); border-color:rgba(184,120,56,0.3); }
+  @media (max-width:760px){ .workshops-columns{ grid-template-columns:1fr; gap:28px; } }
 
   .site-footer{ background:var(--green-950); color:#EAF3EC; padding:40px 0 24px; text-align:center; }
   .site-footer .footer-title{ font-size:15px; font-weight:800; margin-bottom:6px; }
@@ -83,18 +100,42 @@
 </header>
 
 <div class="container">
-  <a class="back-link" href="index.html"><span class="arrow">&#8592;</span><span data-ar="العودة إلى الموقع الرئيسي" data-en="Back to Main Site">العودة إلى الموقع الرئيسي</span></a>
+  <a class="back-link" href="../index.html"><span class="arrow">&#8592;</span><span data-ar="العودة إلى الموقع الرئيسي" data-en="Back to Main Site">العودة إلى الموقع الرئيسي</span></a>
 
   <div class="workshop-hero">
-    <span class="workshop-badge" data-ar="17 مارس 2023م" data-en="March 17, 2023">17 مارس 2023م</span>
-    <h1 data-ar="الحياد الكربوني" data-en="Carbon Neutrality">الحياد الكربوني</h1>
+    <span class="workshop-badge" data-ar="ورش العمل" data-en="Workshops">ورش العمل</span>
+    <h1 data-ar="ورش عمل البرنامج" data-en="Program Workshops">ورش عمل البرنامج</h1>
   </div>
 
   <div class="workshop-body">
-    <div class="workshop-card">
-      <p data-ar="نظّم البرنامج الاستراتيجي لحماية البيئة بالمنطقة الشرقية ورشة عمل متخصصة حول الحياد الكربوني، بمشاركة نخبة من الخبراء والمختصين في القطاع البيئي والصناعي. تناولت الورشة أهمية دمج مفاهيم الحياد الكربوني ضمن استراتيجيات المصانع، وسبل خفض الانبعاثات الكربونية عبر تبني تقنيات الطاقة النظيفة والمتجددة، بما يتماشى مع مستهدفات المملكة العربية السعودية لتحقيق الحياد الكربوني ورؤية السعودية 2030." data-en="The Strategic Program for Environmental Protection in the Eastern Region held a specialized workshop on carbon neutrality, bringing together experts and specialists from the environmental and industrial sectors. The workshop addressed the importance of integrating carbon-neutrality concepts into factory strategies, and ways to reduce carbon emissions by adopting clean and renewable energy technologies, in line with Saudi Arabia's carbon-neutrality targets and Saudi Vision 2030.">نظّم البرنامج الاستراتيجي لحماية البيئة بالمنطقة الشرقية ورشة عمل متخصصة حول الحياد الكربوني، بمشاركة نخبة من الخبراء والمختصين في القطاع البيئي والصناعي. تناولت الورشة أهمية دمج مفاهيم الحياد الكربوني ضمن استراتيجيات المصانع، وسبل خفض الانبعاثات الكربونية عبر تبني تقنيات الطاقة النظيفة والمتجددة، بما يتماشى مع مستهدفات المملكة العربية السعودية لتحقيق الحياد الكربوني ورؤية السعودية 2030.</p>
+    <div class="workshops-columns">
+      <div class="workshops-col done">
+        <h3><span class="dot"></span><span data-ar="ورش عمل تم تنفيذها" data-en="Completed Workshops">ورش عمل تم تنفيذها</span></h3>
+        <a class="workshop-item" href="carbon-neutrality.html">
+          <span class="title-wrap">
+            <span class="arrow">&#8592;</span>
+            <span class="title" data-ar="الحياد الكربوني" data-en="Carbon Neutrality">الحياد الكربوني</span>
+          </span>
+          <span class="date" data-ar="17 مارس 2023م" data-en="March 17, 2023">17 مارس 2023م</span>
+        </a>
+        <a class="workshop-item" href="environment-agriculture.html">
+          <span class="title-wrap">
+            <span class="arrow">&#8592;</span>
+            <span class="title" data-ar="البيئة والزراعة" data-en="Environment &amp; Agriculture">البيئة والزراعة</span>
+          </span>
+          <span class="date" data-ar="2 - 3 فبراير 2024م" data-en="February 2-3, 2024">2 - 3 فبراير 2024م</span>
+        </a>
+      </div>
+      <div class="workshops-col upcoming">
+        <h3><span class="dot"></span><span data-ar="ورش عمل قادمة" data-en="Upcoming Workshops">ورش عمل قادمة</span></h3>
+        <div class="workshop-item">
+          <span class="title-wrap">
+            <span class="title" data-ar="معايير المصنع المثالي" data-en="Ideal Factory Criteria">معايير المصنع المثالي</span>
+          </span>
+          <span class="date" data-ar="4 أكتوبر 2026م" data-en="October 4, 2026">4 أكتوبر 2026م</span>
+        </div>
+      </div>
     </div>
-    <a class="workshop-cta" href="../index.html#register" data-ar="سجّل مشاركة منشأتكم الآن" data-en="Register Your Facility Now">سجّل مشاركة منشأتكم الآن</a>
   </div>
 </div>
 
