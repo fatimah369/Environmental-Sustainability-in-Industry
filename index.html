@@ -93,17 +93,39 @@
 
   .header-actions{ display:flex; align-items:center; gap:16px; flex-shrink:0; }
   .header-nav{
-    display:flex; align-items:center; justify-content:center; gap:28px;
+    display:flex; align-items:center; justify-content:center; gap:28px; flex-wrap:wrap;
     padding:10px 24px; border-top:1px solid var(--border);
-    max-width:1180px; margin:0 auto; overflow-x:auto; scrollbar-width:none;
+    max-width:1180px; margin:0 auto;
   }
-  .header-nav::-webkit-scrollbar{ display:none; }
   .nav-links{ display:flex; align-items:center; gap:24px; flex-shrink:0; }
-  .nav-links a{
+  .nav-links > a, .nav-item > a{
     font-size:13.5px; font-weight:700; color:var(--ink-soft); text-decoration:none;
     white-space:nowrap; transition:color .2s ease;
   }
-  .nav-links a:hover{ color:var(--green-700); }
+  .nav-links > a:hover, .nav-item > a:hover{ color:var(--green-700); }
+  .nav-item{ position:relative; display:flex; align-items:center; gap:2px; }
+  .nav-caret{
+    border:none; background:transparent; padding:2px; margin:0; cursor:pointer;
+    font-size:10px; color:var(--ink-soft); line-height:1; font-family:inherit;
+    transition:transform .2s ease, color .2s ease;
+  }
+  .nav-item:hover .nav-caret, .nav-item.open .nav-caret{ color:var(--green-700); }
+  .nav-item.open .nav-caret{ transform:rotate(180deg); }
+  .nav-dropdown{
+    position:absolute; top:calc(100% + 14px); inset-inline-start:0;
+    background:#fff; border:1px solid var(--border); border-radius:10px; box-shadow:var(--shadow);
+    padding:6px; min-width:130px; opacity:0; visibility:hidden; transform:translateY(-6px);
+    transition:opacity .2s ease, transform .2s ease, visibility .2s ease; z-index:200;
+  }
+  .nav-item:hover .nav-dropdown, .nav-item.open .nav-dropdown{
+    opacity:1; visibility:visible; transform:translateY(0);
+  }
+  .nav-dropdown a{
+    display:block; padding:8px 12px; border-radius:6px; font-size:13px;
+    font-weight:700; color:var(--ink-soft); text-decoration:none; white-space:nowrap;
+    transition:background .2s ease, color .2s ease;
+  }
+  .nav-dropdown a:hover{ background:var(--bg-soft); color:var(--green-700); }
   .nav-cta{
     flex-shrink:0; background:var(--green-500); color:#fff; padding:9px 24px;
     border-radius:999px; font-size:13.5px; font-weight:800; text-decoration:none;
@@ -111,7 +133,7 @@
   }
   @media (max-width:760px){
     .nav-links{ gap:16px; }
-    .nav-links a{ font-size:12.5px; }
+    .nav-links > a, .nav-item > a{ font-size:12.5px; }
   }
   @media (max-width:560px){
     .header-nav{ justify-content:flex-start; }
@@ -156,8 +178,9 @@
   .hero-eyebrow{
     display:inline-flex; align-items:center; gap:10px;
     background:rgba(255,255,255,0.10); border:1px solid rgba(255,255,255,0.28);
-    padding:8px 20px; border-radius:999px; font-size:13px; font-weight:700;
-    letter-spacing:.04em; margin-bottom:28px; color:#EAF5EC;
+    padding:16px 36px; border-radius:999px; font-size:clamp(19px, 2.6vw, 28px); font-weight:800;
+    letter-spacing:.02em; margin-bottom:28px; color:#fff;
+    text-shadow:0 2px 20px rgba(0,0,0,0.25);
   }
   .hero-content h1{
     font-size:clamp(28px, 4.4vw, 46px);
@@ -650,8 +673,20 @@
   </div>
   <nav class="header-nav">
     <div class="nav-links">
-      <a href="milestones/edition-1.html" data-ar="النسخة الأولى" data-en="1st Edition">النسخة الأولى</a>
-      <a href="milestones/edition-2.html" data-ar="النسخة الثانية" data-en="2nd Edition">النسخة الثانية</a>
+      <div class="nav-item">
+        <a href="milestones/edition-1.html" data-ar="النسخة الأولى" data-en="1st Edition">النسخة الأولى</a>
+        <button type="button" class="nav-caret" aria-label="Toggle submenu">&#9662;</button>
+        <div class="nav-dropdown">
+          <a href="#winners-edition-1" data-ar="الفائزون" data-en="Winners">الفائزون</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="milestones/edition-2.html" data-ar="النسخة الثانية" data-en="2nd Edition">النسخة الثانية</a>
+        <button type="button" class="nav-caret" aria-label="Toggle submenu">&#9662;</button>
+        <div class="nav-dropdown">
+          <a href="#winners-edition-2" data-ar="الفائزون" data-en="Winners">الفائزون</a>
+        </div>
+      </div>
       <a href="workshops/index.html" data-ar="ورش العمل" data-en="Workshops">ورش العمل</a>
     </div>
     <a class="nav-cta" href="#register" data-ar="سجّل الآن" data-en="Register Now">سجّل الآن</a>
@@ -663,7 +698,6 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <span class="hero-eyebrow" data-ar="برنامج المصنع المثالي" data-en="Ideal Factory Program">برنامج المصنع المثالي</span>
-    <h1 data-ar="البرنامج الاستراتيجي لحماية البيئة بالمنطقة الشرقية" data-en="Strategic Program for Environmental Protection in the Eastern Region">البرنامج الاستراتيجي لحماية البيئة بالمنطقة الشرقية</h1>
     <div class="hero-badges">
       <div class="hero-badge">
         <strong data-ar="الجائزة" data-en="Award">الجائزة</strong>
@@ -898,7 +932,7 @@
       <span class="section-eyebrow" data-ar="المصانع الفائزة" data-en="Award Winners">المصانع الفائزة</span>
       <h2 data-ar="أسماء المصانع الفائزة عبر النسخ السابقة" data-en="Winning Factories Across Previous Editions">أسماء المصانع الفائزة عبر النسخ السابقة</h2>
     </div>
-    <div class="winners-card">
+    <div class="winners-card" id="winners-edition-1">
       <h3 class="winners-edition" data-ar="النسخة الأولى" data-en="1st Edition">النسخة الأولى</h3>
       <span class="winners-date" data-ar="في 26/7/2021م" data-en="July 26, 2021">في 26/7/2021م</span>
       <p class="winners-intro" data-ar="كرّم صاحب السمو الملكي الأمير سعود بن نايف أمير المنطقة الشرقية المصانع الفائزة في مكتب سمو أمير المنطقة الشرقية بديوان إمارة المنطقة الشرقية." data-en="His Royal Highness Prince Saud bin Nayef, Governor of the Eastern Province, honored the winning factories at the Office of the Governor of the Eastern Province, Eastern Province Emirate Diwan.">كرّم صاحب السمو الملكي الأمير سعود بن نايف أمير المنطقة الشرقية المصانع الفائزة في مكتب سمو أمير المنطقة الشرقية بديوان إمارة المنطقة الشرقية.</p>
@@ -919,7 +953,7 @@
         </div>
       </div>
     </div>
-    <div class="winners-card">
+    <div class="winners-card" id="winners-edition-2">
       <h3 class="winners-edition" data-ar="النسخة الثانية" data-en="2nd Edition">النسخة الثانية</h3>
       <span class="winners-date" data-ar="في 23/2/2024م" data-en="February 23, 2024">في 23/2/2024م</span>
       <p class="winners-intro" data-ar="كرّم صاحب السمو الملكي الأمير سعود بن نايف أمير المنطقة الشرقية المصانع الفائزة في مكتب سمو أمير المنطقة الشرقية بديوان إمارة المنطقة الشرقية." data-en="His Royal Highness Prince Saud bin Nayef, Governor of the Eastern Province, honored the winning factories at the Office of the Governor of the Eastern Province, Eastern Province Emirate Diwan.">كرّم صاحب السمو الملكي الأمير سعود بن نايف أمير المنطقة الشرقية المصانع الفائزة في مكتب سمو أمير المنطقة الشرقية بديوان إمارة المنطقة الشرقية.</p>
@@ -1305,6 +1339,24 @@
   window.addEventListener('scroll', updateProgress, { passive: true });
   window.addEventListener('resize', updateProgress);
   updateProgress();
+})();
+
+(function(){
+  var items = document.querySelectorAll('.nav-item');
+  items.forEach(function(item){
+    var caret = item.querySelector('.nav-caret');
+    if(!caret){ return; }
+    caret.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var isOpen = item.classList.contains('open');
+      items.forEach(function(i){ i.classList.remove('open'); });
+      if(!isOpen){ item.classList.add('open'); }
+    });
+  });
+  document.addEventListener('click', function(){
+    items.forEach(function(i){ i.classList.remove('open'); });
+  });
 })();
 </script>
 
