@@ -205,6 +205,19 @@
     transition:transform .2s ease, box-shadow .2s ease;
   }
   .btn-primary:hover{ transform:translateY(-3px); box-shadow:0 16px 36px rgba(12,173,75,0.45); }
+  .hero-cta-group{ display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap; }
+  .btn-outline{
+    display:inline-flex; align-items:center; gap:10px; background:rgba(255,255,255,0.08);
+    color:#fff; padding:15px 36px; border-radius:12px; font-size:16px; font-weight:700;
+    text-decoration:none; border:1.5px solid rgba(255,255,255,0.55);
+    transition:transform .2s ease, background .2s ease;
+  }
+  .btn-outline:hover{ background:rgba(255,255,255,0.18); transform:translateY(-3px); }
+  .btn-outline svg{ width:18px; height:18px; flex-shrink:0; }
+  @media (max-width:480px){
+    .hero-cta-group{ flex-direction:column; width:100%; }
+    .btn-primary, .btn-outline{ width:100%; text-align:center; justify-content:center; }
+  }
 
   /* ===== Section generic ===== */
   section{ padding:90px 0; }
@@ -664,7 +677,13 @@
       </div>
     </div>
     <p class="hero-tagline" data-ar="نحو صناعة مسؤولة بيئيًا وبيئة أكثر استدامة في المنطقة الشرقية، بمشاركة المصانع والمنشآت الصناعية الرائدة" data-en="Towards environmentally responsible industry and a more sustainable Eastern Region, with the participation of leading factories and industrial facilities">نحو صناعة مسؤولة بيئيًا وبيئة أكثر استدامة في المنطقة الشرقية، بمشاركة المصانع والمنشآت الصناعية الرائدة</p>
-    <a href="#register" class="btn-primary" data-ar="سجّل مشاركتك الآن" data-en="Register Now">سجّل مشاركتك الآن</a>
+    <div class="hero-cta-group">
+      <a href="#register" class="btn-primary" data-ar="سجّل مشاركتك الآن" data-en="Register Now">سجّل مشاركتك الآن</a>
+      <a href="الاستدامة-البيئية-في-الصناعة.pdf" download class="btn-outline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+        <span data-ar="استعرض ملف المبادرة" data-en="View Initiative Brochure">استعرض ملف المبادرة</span>
+      </a>
+    </div>
   </div>
 </section>
 
